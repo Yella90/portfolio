@@ -386,7 +386,7 @@ const ORDER = {
   informatique: ["erp", "harvey", "robot", "eau", "verin", "moteur"],
   industrie: ["verin", "robot", "eau", "moteur", "harvey", "erp"]
 };
-const LIVE = { erp: "https://unitech-erp.onrender.com/", harvey: "https://unitech-qvgo.onrender.com/chat" };
+const LIVE = { erp: ["https://unitech-erp.onrender.com/"], harvey: ["https://unitech-qvgo.onrender.com/chat", "https://unitech-qvgo.onrender.com/"] };
 
 const T = {
   fr: {
@@ -781,10 +781,9 @@ function renderProjects(t) {
   $("projects").innerHTML = ORDER[state.mode].map((key, i) => {
     const p = t.projects[key], list = ORDER[state.mode];
     const wide = i === 0 || (i === list.length - 1 && (list.length - 1) % 2 === 1);
-    const url = LIVE[key];
-    const live = url
-      ? `<div class="live"><span class="dot"></span><a href="${url}" target="_blank" rel="noopener">${url.replace("https://", "").replace(/\/$/, "")}</a></div>`
-      : "";
+    const live = (LIVE[key] || []).map((url) =>
+      `<div class="live"><span class="dot"></span><a href="${url}" target="_blank" rel="noopener">${url.replace("https://", "").replace(/\/$/, "")}</a></div>`
+    ).join("");
     return `<article class="proj swap${i === 0 ? " lead" : ""}${wide && i > 0 ? " wide" : ""}">
       <div class="meta"><span class="label">${esc(p.kind)}</span></div>
       <h3>${esc(p.title)}</h3>
