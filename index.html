@@ -266,6 +266,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         <dt data-i18n="dtBac">Bac</dt><dd data-i18n="ddBac"></dd>
         <dt data-i18n="dtLangs">Langues</dt><dd data-i18n="ddLangs"></dd>
         <dt data-i18n="dtOnline">En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a><br><a href="https://unitech-qvgo.onrender.com/chat" target="_blank" rel="noopener">unitech-qvgo.onrender.com/chat</a></dd>
+        <dt data-i18n="dtCompany">Entreprise</dt><dd><span data-i18n="ddCompany"></span> <a href="https://unitech-qvgo.onrender.com/" target="_blank" rel="noopener">UNITECH</a></dd>
         <dt data-i18n="dtStatus">Statut</dt><dd id="status"></dd>
       </dl>
     </aside>
@@ -328,9 +329,18 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
             <p style="margin-top:10px" data-i18n="s3Gen"></p>
           </div>
         </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tU"></div></li>
+        <li class="step">
+          <div class="box">4</div>
+          <div class="act">
+            <h3 data-i18n="sUTitle"></h3>
+            <p data-i18n="sUSub"></p>
+            <ul data-i18n="sUList"></ul>
+          </div>
+        </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t3"></div></li>
         <li class="step active">
-          <div class="box">4</div>
+          <div class="box">5</div>
           <div class="act">
             <h3 data-i18n="s4Title"></h3>
             <p id="next-text"></p>
@@ -382,9 +392,9 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
 
 <script>
 const ORDER = {
-  mecatronique: ["robot", "verin", "moteur", "eau", "harvey", "erp"],
-  informatique: ["erp", "harvey", "robot", "eau", "verin", "moteur"],
-  industrie: ["verin", "robot", "eau", "moteur", "harvey", "erp"]
+  mecatronique: ["robot", "domotique", "verin", "moteur", "eau", "harvey", "erp", "liveshop"],
+  informatique: ["erp", "harvey", "liveshop", "robot", "domotique", "eau", "verin", "moteur"],
+  industrie: ["verin", "robot", "domotique", "eau", "moteur", "harvey", "erp", "liveshop"]
 };
 const LIVE = { erp: ["https://unitech-erp.onrender.com/"], harvey: ["https://unitech-qvgo.onrender.com/chat", "https://unitech-qvgo.onrender.com/"] };
 
@@ -404,7 +414,7 @@ const T = {
       dtSchool: "École", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bac", ddBac: "Sciences Exactes, 2020 – 2021",
       dtLangs: "Langues", ddLangs: "Français, Bambara, Anglais (intermédiaire)",
-      dtOnline: "En ligne", dtStatus: "Statut",
+      dtOnline: "En ligne", dtStatus: "Statut", dtCompany: "Entreprise", ddCompany: "Fondateur de",
       secProjects: "Réalisations",
       projNote: (p) => "Classées pour le profil " + p,
       secSkills: "Compétences",
@@ -424,6 +434,10 @@ const T = {
       s3Sub: "Énergie solaire, électricité et sécurité",
       s3List: ["Installation de systèmes photovoltaïques : panneaux, câblage, onduleurs, batteries", "Vidéosurveillance : pose, câblage, paramétrage des enregistreurs et de l'accès à distance", "Maintenance préventive et curative des installations"],
       s3Gen: "<strong style=\"color:var(--ink)\">Atelier de groupes électrogènes</strong> : diagnostic des pannes mécaniques et électriques, maintenance, remise en service.",
+      tU: "création d'UNITECH",
+      sUTitle: "Fondateur d'UNITECH",
+      sUSub: "Startup de solutions technologiques, Bamako",
+      sUList: ["SaaS pour l'éducation, le commerce local et la gestion énergétique", "Agent IA HARVEY ; formations en IA, énergie et maintenance", "Équipe de 12 membres, 2 SaaS en production"],
       t3: "diplôme 2026 ✓",
       s4Title: "Prochaine étape",
       sideLangs: "Langues", langFr: "Français", langEn: "Anglais", lvlGood: "très bon", lvlMid: "intermédiaire",
@@ -442,7 +456,8 @@ const T = {
         role: "<mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique",
         pitch: [
           "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.",
-          "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle."
+          "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle.",
+          "Fondateur d'UNITECH, startup de solutions technologiques (SaaS, IA, énergie) à Bamako."
         ],
         skills: [
           ["Automatisme", "Programmation des API, Grafcet, Ladder, commande de vérins et de moteurs"],
@@ -464,7 +479,8 @@ const T = {
         role: "<mark>Développeur</mark> · Web, logiciel &amp; agents IA",
         pitch: [
           "Développeur web et logiciel issu d'une Licence Professionnelle en Génie Électrique et Informatique Industrielle. Je mène une application de bout en bout : base de données, back-end, interface utilisateur et mise en production. Je développe aussi des agents IA.",
-          "Autodidacte et rigoureux, j'ai conçu seul une plateforme SaaS de gestion scolaire aujourd'hui en ligne, ainsi que le logiciel de supervision d'un bras robotisé de tri par vision artificielle."
+          "Autodidacte et rigoureux, j'ai conçu seul une plateforme SaaS de gestion scolaire aujourd'hui en ligne, ainsi que le logiciel de supervision d'un bras robotisé de tri par vision artificielle.",
+          "Fondateur d'UNITECH, startup de solutions technologiques (SaaS, IA, énergie) à Bamako."
         ],
         skills: [
           ["Back-end", "Python (Django), Node.js, EJS"],
@@ -486,7 +502,8 @@ const T = {
         role: "<mark>Technicien industriel</mark> · Maintenance &amp; production",
         pitch: [
           "Technicien polyvalent formé en Génie Électrique et Informatique Industrielle, opérationnel sur les équipements de production : électricité et puissance, motorisation, pneumatique, automates et supervision.",
-          "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures."
+          "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures.",
+          "Fondateur d'UNITECH, startup de solutions technologiques (SaaS, IA, énergie) à Bamako."
         ],
         skills: [
           ["Maintenance industrielle", "Diagnostic de pannes, maintenance préventive et curative, réparation et remise en service des groupes électrogènes"],
@@ -506,6 +523,8 @@ const T = {
     },
     projects: {
       harvey: { kind: "Projet · en ligne", title: "HARVEY, agent IA d'accueil pour UNITECH", text: "Assistant conversationnel sur le site d'UNITECH : il accueille les visiteurs et répond uniquement sur l'activité de l'entreprise.", points: ["Renseigne sur les services, les formations (programmes, tarifs, dates) et les projets", "Prend les commandes, les demandes de devis et de rendez-vous", "Envoie automatiquement les informations par email au visiteur"], tags: ["Agent IA", "LLM", "Chatbot", "Email automatique"] },
+      liveshop: { kind: "UNITECH · terminé", title: "LiveShop, SaaS de vente en live", text: "Plateforme pour les vendeurs d'Afrique francophone qui vendent en live sur TikTok, Facebook ou Instagram.", points: ["Gestion des commandes passées pendant le live", "Suivi du stock et des livraisons", "Le vendeur garde son audience sur les réseaux sociaux"], tags: ["SaaS", "E-commerce", "Vente en live"] },
+      domotique: { kind: "UNITECH · en cours", title: "Système de domotique énergétique", text: "Suivi et gestion de la consommation d'énergie d'installations solaires, avec IA et facturation automatique.", points: ["Suivi de la consommation", "Facturation automatique", "Optimisation par IA", "Test terrain prévu en octobre 2027"], tags: ["Énergie solaire", "IoT", "IA", "Domotique"] },
       erp: { kind: "Projet personnel · en production", title: "Unitech-ERP, plateforme SaaS de gestion scolaire", text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.", points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Projet académique", title: "Bras robotisé de tri par vision artificielle", text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.", points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"], tags: ["Robotique", "Vision", "Supervision", "Python"] },
       eau: { kind: "Réalisation", title: "Distributeur d'eau automatique avec monnayeur", text: "Système complet de distribution commandée, avec encaissement.", points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"], tags: ["Automatisme", "Électronique", "IHM"] },
@@ -529,7 +548,7 @@ const T = {
       dtSchool: "School", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "High school", ddBac: "Malian Baccalaureate, Exact Sciences, 2020 – 2021",
       dtLangs: "Languages", ddLangs: "French, Bambara, English (intermediate)",
-      dtOnline: "Online", dtStatus: "Status",
+      dtOnline: "Online", dtStatus: "Status", dtCompany: "Company", ddCompany: "Founder of",
       secProjects: "Projects",
       projNote: (p) => "Ordered for the " + p + " profile",
       secSkills: "Skills",
@@ -549,6 +568,10 @@ const T = {
       s3Sub: "Solar energy, electrical work and security",
       s3List: ["Solar PV installation: panels, wiring, inverters, batteries", "CCTV: mounting, wiring, recorder setup and remote access", "Preventive and corrective maintenance of installations"],
       s3Gen: "<strong style=\"color:var(--ink)\">Generator repair workshop</strong>: diagnosis of mechanical and electrical faults, maintenance, return to service.",
+      tU: "UNITECH founded",
+      sUTitle: "Founder of UNITECH",
+      sUSub: "Technology solutions startup, Bamako",
+      sUList: ["SaaS for education, local retail and energy management", "HARVEY AI agent; training in AI, energy and maintenance", "Team of 12, 2 SaaS products in production"],
       t3: "graduated 2026 ✓",
       s4Title: "Next step",
       sideLangs: "Languages", langFr: "French", langEn: "English", lvlGood: "fluent", lvlMid: "intermediate",
@@ -567,7 +590,8 @@ const T = {
         role: "<mark>Mechatronics</mark> · Automation, electromechanics &amp; robotics",
         pitch: [
           "Graduate in Electrical Engineering and Industrial Computing (mechatronics option), focused on intelligent systems, automation, CAD (SolidWorks, AutoCAD) and robotics.",
-          "Comfortable across the whole automated system: electrical and power circuits, sensors and actuators, PLC programming, supervision and software integration."
+          "Comfortable across the whole automated system: electrical and power circuits, sensors and actuators, PLC programming, supervision and software integration.",
+          "Founder of UNITECH, a technology solutions startup (SaaS, AI, energy) in Bamako."
         ],
         skills: [
           ["Automation", "PLC programming, GRAFCET, Ladder, control of cylinders and motors"],
@@ -589,7 +613,8 @@ const T = {
         role: "<mark>Developer</mark> · Web, software &amp; AI agents",
         pitch: [
           "Web and software developer with a Professional Bachelor's in Electrical Engineering and Industrial Computing. I build applications end to end: database, back end, user interface and deployment. I also build AI agents.",
-          "Self-taught and thorough, I single-handedly built a school management SaaS platform that is live today, as well as the supervision software for a vision-guided robotic sorting arm."
+          "Self-taught and thorough, I single-handedly built a school management SaaS platform that is live today, as well as the supervision software for a vision-guided robotic sorting arm.",
+          "Founder of UNITECH, a technology solutions startup (SaaS, AI, energy) in Bamako."
         ],
         skills: [
           ["Back end", "Python (Django), Node.js, EJS"],
@@ -611,7 +636,8 @@ const T = {
         role: "<mark>Industrial technician</mark> · Maintenance &amp; production",
         pitch: [
           "Versatile technician trained in Electrical Engineering and Industrial Computing, hands-on with production equipment: electrical and power, motors, pneumatics, PLCs and supervision.",
-          "Practical workshop experience diagnosing and repairing generators. I read and write technical documentation: schematics, AutoCAD and SolidWorks drawings, procedures."
+          "Practical workshop experience diagnosing and repairing generators. I read and write technical documentation: schematics, AutoCAD and SolidWorks drawings, procedures.",
+          "Founder of UNITECH, a technology solutions startup (SaaS, AI, energy) in Bamako."
         ],
         skills: [
           ["Industrial maintenance", "Fault diagnosis, preventive and corrective maintenance, generator repair and return to service"],
@@ -631,6 +657,8 @@ const T = {
     },
     projects: {
       harvey: { kind: "Project · live", title: "HARVEY, AI front-desk agent for UNITECH", text: "Conversational assistant on UNITECH's website: it welcomes visitors and answers only about the company's business.", points: ["Answers questions on services, training (programs, prices, dates) and projects", "Takes orders, quote requests and appointment requests", "Automatically emails the information to the visitor"], tags: ["AI agent", "LLM", "Chatbot", "Automated email"] },
+      liveshop: { kind: "UNITECH · completed", title: "LiveShop, live selling SaaS", text: "Platform for French-speaking African sellers who sell live on TikTok, Facebook or Instagram.", points: ["Managing orders placed during the live", "Stock and delivery tracking", "Sellers keep their audience on social media"], tags: ["SaaS", "E-commerce", "Live selling"] },
+      domotique: { kind: "UNITECH · in progress", title: "Smart energy home automation system", text: "Monitoring and managing energy use of solar installations, with AI and automatic billing.", points: ["Consumption monitoring", "Automatic billing", "AI-based optimization", "Field test planned for October 2027"], tags: ["Solar energy", "IoT", "AI", "Home automation"] },
       erp: { kind: "Personal project · live", title: "Unitech-ERP, school management SaaS", text: "Web platform designed and built single-handedly, from database to deployment.", points: ["Student enrollment", "Billing", "Grade entry and tracking"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Academic project", title: "Vision-guided robotic sorting arm", text: "Automated sorting station: a robotic arm sorts objects recognized by a camera.", points: ["Station supervision and control software", "Supervision website", "Automated sorting with computer vision"], tags: ["Robotics", "Vision", "Supervision", "Python"] },
       eau: { kind: "Build", title: "Coin-operated automatic water dispenser", text: "Complete controlled dispensing system with payment handling.", points: ["Dispensing control logic", "Coin acceptor payment handling", "User interface"], tags: ["Automation", "Electronics", "HMI"] },
@@ -654,7 +682,7 @@ const T = {
       dtSchool: "Escuela", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bachillerato", ddBac: "Ciencias Exactas, 2020 – 2021",
       dtLangs: "Idiomas", ddLangs: "Francés, bambara, inglés (intermedio)",
-      dtOnline: "En línea", dtStatus: "Estado",
+      dtOnline: "En línea", dtStatus: "Estado", dtCompany: "Empresa", ddCompany: "Fundador de",
       secProjects: "Proyectos",
       projNote: (p) => "Ordenados para el perfil " + p,
       secSkills: "Competencias",
@@ -674,6 +702,10 @@ const T = {
       s3Sub: "Energía solar, electricidad y seguridad",
       s3List: ["Instalación fotovoltaica: paneles, cableado, inversores, baterías", "Videovigilancia: montaje, cableado, configuración de grabadores y acceso remoto", "Mantenimiento preventivo y correctivo de las instalaciones"],
       s3Gen: "<strong style=\"color:var(--ink)\">Taller de grupos electrógenos</strong>: diagnóstico de averías mecánicas y eléctricas, mantenimiento, puesta en marcha.",
+      tU: "creación de UNITECH",
+      sUTitle: "Fundador de UNITECH",
+      sUSub: "Startup de soluciones tecnológicas, Bamako",
+      sUList: ["SaaS para educación, comercio local y gestión energética", "Agente de IA HARVEY; formaciones en IA, energía y mantenimiento", "Equipo de 12 personas, 2 SaaS en producción"],
       t3: "titulado en 2026 ✓",
       s4Title: "Próxima etapa",
       sideLangs: "Idiomas", langFr: "Francés", langEn: "Inglés", lvlGood: "muy bueno", lvlMid: "intermedio",
@@ -692,7 +724,8 @@ const T = {
         role: "<mark>Mecatrónica</mark> · Automatización, electromecánica y robótica",
         pitch: [
           "Titulado en Ingeniería Eléctrica e Informática Industrial (opción mecatrónica), especializado en sistemas inteligentes, automatización, CAD (SolidWorks, AutoCAD) y robótica.",
-          "Domino toda la cadena de un sistema automatizado: parte eléctrica y de potencia, sensores y actuadores, programación de autómatas, supervisión e integración de software."
+          "Domino toda la cadena de un sistema automatizado: parte eléctrica y de potencia, sensores y actuadores, programación de autómatas, supervisión e integración de software.",
+          "Fundador de UNITECH, startup de soluciones tecnológicas (SaaS, IA, energía) en Bamako."
         ],
         skills: [
           ["Automatización", "Programación de PLC, GRAFCET, Ladder, control de cilindros y motores"],
@@ -714,7 +747,8 @@ const T = {
         role: "<mark>Desarrollador</mark> · Web, software y agentes de IA",
         pitch: [
           "Desarrollador web y de software con una Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial. Llevo una aplicación de principio a fin: base de datos, back-end, interfaz de usuario y puesta en producción. También desarrollo agentes de IA.",
-          "Autodidacta y riguroso, diseñé solo una plataforma SaaS de gestión escolar que hoy está en línea, así como el software de supervisión de un brazo robótico de clasificación por visión artificial."
+          "Autodidacta y riguroso, diseñé solo una plataforma SaaS de gestión escolar que hoy está en línea, así como el software de supervisión de un brazo robótico de clasificación por visión artificial.",
+          "Fundador de UNITECH, startup de soluciones tecnológicas (SaaS, IA, energía) en Bamako."
         ],
         skills: [
           ["Back-end", "Python (Django), Node.js, EJS"],
@@ -736,7 +770,8 @@ const T = {
         role: "<mark>Técnico industrial</mark> · Mantenimiento y producción",
         pitch: [
           "Técnico polivalente formado en Ingeniería Eléctrica e Informática Industrial, operativo en equipos de producción: electricidad y potencia, motores, neumática, autómatas y supervisión.",
-          "Experiencia práctica en taller en el diagnóstico y la reparación de grupos electrógenos. Leo y redacto documentación técnica: esquemas, planos en AutoCAD y SolidWorks, procedimientos."
+          "Experiencia práctica en taller en el diagnóstico y la reparación de grupos electrógenos. Leo y redacto documentación técnica: esquemas, planos en AutoCAD y SolidWorks, procedimientos.",
+          "Fundador de UNITECH, startup de soluciones tecnológicas (SaaS, IA, energía) en Bamako."
         ],
         skills: [
           ["Mantenimiento industrial", "Diagnóstico de averías, mantenimiento preventivo y correctivo, reparación y puesta en marcha de grupos electrógenos"],
@@ -756,6 +791,8 @@ const T = {
     },
     projects: {
       harvey: { kind: "Proyecto · en línea", title: "HARVEY, agente de IA de atención para UNITECH", text: "Asistente conversacional en el sitio de UNITECH: recibe a los visitantes y responde solo sobre la actividad de la empresa.", points: ["Informa sobre servicios, formaciones (programas, precios, fechas) y proyectos", "Toma pedidos, solicitudes de presupuesto y de cita", "Envía automáticamente la información por correo al visitante"], tags: ["Agente de IA", "LLM", "Chatbot", "Correo automático"] },
+      liveshop: { kind: "UNITECH · terminado", title: "LiveShop, SaaS de venta en directo", text: "Plataforma para vendedores de África francófona que venden en directo en TikTok, Facebook o Instagram.", points: ["Gestión de los pedidos hechos durante el directo", "Seguimiento del stock y de las entregas", "El vendedor conserva su audiencia en las redes sociales"], tags: ["SaaS", "E-commerce", "Venta en directo"] },
+      domotique: { kind: "UNITECH · en curso", title: "Sistema de domótica energética", text: "Seguimiento y gestión del consumo energético de instalaciones solares, con IA y facturación automática.", points: ["Seguimiento del consumo", "Facturación automática", "Optimización con IA", "Prueba de campo prevista en octubre de 2027"], tags: ["Energía solar", "IoT", "IA", "Domótica"] },
       erp: { kind: "Proyecto personal · en producción", title: "Unitech-ERP, plataforma SaaS de gestión escolar", text: "Plataforma web diseñada y desarrollada en solitario, de la base de datos a la puesta en línea.", points: ["Matrícula de alumnos", "Facturación", "Registro y seguimiento de notas"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Proyecto académico", title: "Brazo robótico de clasificación por visión artificial", text: "Puesto de clasificación automática: un brazo robótico ordena los objetos reconocidos por una cámara.", points: ["Software de supervisión y control del puesto", "Sitio web de supervisión", "Clasificación automática por visión artificial"], tags: ["Robótica", "Visión", "Supervisión", "Python"] },
       eau: { kind: "Realización", title: "Dispensador automático de agua con monedero", text: "Sistema completo de dispensación controlada, con cobro.", points: ["Lógica de control de la dispensación", "Gestión del cobro con monedero", "Interfaz de usuario"], tags: ["Automatización", "Electrónica", "HMI"] },
