@@ -140,6 +140,7 @@ section { padding-block: 44px; border-top: 1px solid var(--line); }
 .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .proj { background: var(--surface); border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, opacity .2s; }
 .proj.lead { grid-column: 1 / -1; border: 2px solid var(--ink); }
+.proj.wide { grid-column: 1 / -1; }
 .proj .meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .proj h3 { font-size: 22px; font-weight: 700; font-stretch: 100%; }
 .proj p { margin: 0; color: var(--muted); max-width: 70ch; }
@@ -264,7 +265,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         <dt data-i18n="dtSchool">École</dt><dd data-i18n="ddSchool"></dd>
         <dt data-i18n="dtBac">Bac</dt><dd data-i18n="ddBac"></dd>
         <dt data-i18n="dtLangs">Langues</dt><dd data-i18n="ddLangs"></dd>
-        <dt data-i18n="dtOnline">En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a></dd>
+        <dt data-i18n="dtOnline">En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a><br><a href="https://unitech-qvgo.onrender.com/chat" target="_blank" rel="noopener">unitech-qvgo.onrender.com/chat</a></dd>
         <dt data-i18n="dtStatus">Statut</dt><dd id="status"></dd>
       </dl>
     </aside>
@@ -381,11 +382,11 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
 
 <script>
 const ORDER = {
-  mecatronique: ["robot", "verin", "moteur", "eau", "erp"],
-  informatique: ["erp", "robot", "eau", "verin", "moteur"],
-  industrie: ["verin", "robot", "eau", "moteur", "erp"]
+  mecatronique: ["robot", "verin", "moteur", "eau", "harvey", "erp"],
+  informatique: ["erp", "harvey", "robot", "eau", "verin", "moteur"],
+  industrie: ["verin", "robot", "eau", "moteur", "harvey", "erp"]
 };
-const LIVE = { erp: "https://unitech-erp.onrender.com/" };
+const LIVE = { erp: "https://unitech-erp.onrender.com/", harvey: "https://unitech-qvgo.onrender.com/chat" };
 
 const T = {
   fr: {
@@ -399,8 +400,8 @@ const T = {
       plateTitle: "FICHE TECHNIQUE",
       plateRef: "Réf. GEII-MEC",
       photoAlt: "Portrait de Laye Soma Doumbia en costume",
-      dtDegree: "Diplôme", ddDegree: "Licence Pro Génie Électrique et Informatique Industrielle, option Mécatronique",
-      dtSchool: "École", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtDegree: "Diplôme", ddDegree: "Licence Pro Génie Électrique et Informatique Industrielle, option Mécatronique · mention Assez-Bien",
+      dtSchool: "École", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bac", ddBac: "Sciences Exactes, 2020 – 2021",
       dtLangs: "Langues", ddLangs: "Français, Bambara, Anglais (intermédiaire)",
       dtOnline: "En ligne", dtStatus: "Statut",
@@ -414,7 +415,7 @@ const T = {
       s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
       t0: "bac obtenu",
       s1Title: "Licence Professionnelle GEII, option Mécatronique",
-      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       s1Desc: "Automatisme, électricité de puissance, électronique, informatique industrielle, DAO/CAO.",
       t1: "+ formations complémentaires",
       s2Title: "Formations complémentaires",
@@ -467,7 +468,7 @@ const T = {
         ],
         skills: [
           ["Back-end", "Python (Django), Node.js, EJS"],
-          ["Agents IA", "Développement d'agents IA : assistants basés sur des modèles de langage (LLM), automatisation de tâches"],
+          ["Agents IA", "Développement d'agents IA (LLM) : assistants qui renseignent, prennent des demandes et envoient des emails automatiquement"],
           ["Front-end", "React, JavaScript, HTML, CSS"],
           ["Bases de données", "PostgreSQL, SQLite, Access"],
           ["Applications", "Interfaces graphiques Kivy MD (Python)"],
@@ -504,6 +505,7 @@ const T = {
       }
     },
     projects: {
+      harvey: { kind: "Projet · en ligne", title: "HARVEY, agent IA d'accueil pour UNITECH", text: "Assistant conversationnel sur le site d'UNITECH : il accueille les visiteurs et répond uniquement sur l'activité de l'entreprise.", points: ["Renseigne sur les services, les formations (programmes, tarifs, dates) et les projets", "Prend les commandes, les demandes de devis et de rendez-vous", "Envoie automatiquement les informations par email au visiteur"], tags: ["Agent IA", "LLM", "Chatbot", "Email automatique"] },
       erp: { kind: "Projet personnel · en production", title: "Unitech-ERP, plateforme SaaS de gestion scolaire", text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.", points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Projet académique", title: "Bras robotisé de tri par vision artificielle", text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.", points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"], tags: ["Robotique", "Vision", "Supervision", "Python"] },
       eau: { kind: "Réalisation", title: "Distributeur d'eau automatique avec monnayeur", text: "Système complet de distribution commandée, avec encaissement.", points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"], tags: ["Automatisme", "Électronique", "IHM"] },
@@ -523,8 +525,8 @@ const T = {
       plateTitle: "SPEC SHEET",
       plateRef: "Ref. GEII-MEC",
       photoAlt: "Portrait of Laye Soma Doumbia in a suit",
-      dtDegree: "Degree", ddDegree: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option",
-      dtSchool: "School", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtDegree: "Degree", ddDegree: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option · graded Assez-Bien (good)",
+      dtSchool: "School", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "High school", ddBac: "Malian Baccalaureate, Exact Sciences, 2020 – 2021",
       dtLangs: "Languages", ddLangs: "French, Bambara, English (intermediate)",
       dtOnline: "Online", dtStatus: "Status",
@@ -538,7 +540,7 @@ const T = {
       s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
       t0: "diploma earned",
       s1Title: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option",
-      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       s1Desc: "Automation, power electronics, electronics, industrial computing, CAD.",
       t1: "+ additional training",
       s2Title: "Additional training",
@@ -591,7 +593,7 @@ const T = {
         ],
         skills: [
           ["Back end", "Python (Django), Node.js, EJS"],
-          ["AI agents", "Building AI agents: assistants powered by large language models (LLMs), task automation"],
+          ["AI agents", "Building AI agents (LLM): assistants that inform visitors, take requests and send emails automatically"],
           ["Front end", "React, JavaScript, HTML, CSS"],
           ["Databases", "PostgreSQL, SQLite, Access"],
           ["Desktop apps", "Kivy MD graphical interfaces (Python)"],
@@ -628,6 +630,7 @@ const T = {
       }
     },
     projects: {
+      harvey: { kind: "Project · live", title: "HARVEY, AI front-desk agent for UNITECH", text: "Conversational assistant on UNITECH's website: it welcomes visitors and answers only about the company's business.", points: ["Answers questions on services, training (programs, prices, dates) and projects", "Takes orders, quote requests and appointment requests", "Automatically emails the information to the visitor"], tags: ["AI agent", "LLM", "Chatbot", "Automated email"] },
       erp: { kind: "Personal project · live", title: "Unitech-ERP, school management SaaS", text: "Web platform designed and built single-handedly, from database to deployment.", points: ["Student enrollment", "Billing", "Grade entry and tracking"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Academic project", title: "Vision-guided robotic sorting arm", text: "Automated sorting station: a robotic arm sorts objects recognized by a camera.", points: ["Station supervision and control software", "Supervision website", "Automated sorting with computer vision"], tags: ["Robotics", "Vision", "Supervision", "Python"] },
       eau: { kind: "Build", title: "Coin-operated automatic water dispenser", text: "Complete controlled dispensing system with payment handling.", points: ["Dispensing control logic", "Coin acceptor payment handling", "User interface"], tags: ["Automation", "Electronics", "HMI"] },
@@ -647,8 +650,8 @@ const T = {
       plateTitle: "FICHA TÉCNICA",
       plateRef: "Ref. GEII-MEC",
       photoAlt: "Retrato de Laye Soma Doumbia de traje",
-      dtDegree: "Título", ddDegree: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica",
-      dtSchool: "Escuela", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtDegree: "Título", ddDegree: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica · mención Assez-Bien (bien)",
+      dtSchool: "Escuela", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bachillerato", ddBac: "Ciencias Exactas, 2020 – 2021",
       dtLangs: "Idiomas", ddLangs: "Francés, bambara, inglés (intermedio)",
       dtOnline: "En línea", dtStatus: "Estado",
@@ -662,7 +665,7 @@ const T = {
       s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
       t0: "bachillerato obtenido",
       s1Title: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica",
-      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       s1Desc: "Automatización, electricidad de potencia, electrónica, informática industrial, CAD.",
       t1: "+ formación complementaria",
       s2Title: "Formación complementaria",
@@ -715,7 +718,7 @@ const T = {
         ],
         skills: [
           ["Back-end", "Python (Django), Node.js, EJS"],
-          ["Agentes de IA", "Desarrollo de agentes de IA: asistentes basados en modelos de lenguaje (LLM), automatización de tareas"],
+          ["Agentes de IA", "Desarrollo de agentes de IA (LLM): asistentes que informan, recogen solicitudes y envían correos automáticamente"],
           ["Front-end", "React, JavaScript, HTML, CSS"],
           ["Bases de datos", "PostgreSQL, SQLite, Access"],
           ["Aplicaciones", "Interfaces gráficas Kivy MD (Python)"],
@@ -752,6 +755,7 @@ const T = {
       }
     },
     projects: {
+      harvey: { kind: "Proyecto · en línea", title: "HARVEY, agente de IA de atención para UNITECH", text: "Asistente conversacional en el sitio de UNITECH: recibe a los visitantes y responde solo sobre la actividad de la empresa.", points: ["Informa sobre servicios, formaciones (programas, precios, fechas) y proyectos", "Toma pedidos, solicitudes de presupuesto y de cita", "Envía automáticamente la información por correo al visitante"], tags: ["Agente de IA", "LLM", "Chatbot", "Correo automático"] },
       erp: { kind: "Proyecto personal · en producción", title: "Unitech-ERP, plataforma SaaS de gestión escolar", text: "Plataforma web diseñada y desarrollada en solitario, de la base de datos a la puesta en línea.", points: ["Matrícula de alumnos", "Facturación", "Registro y seguimiento de notas"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
       robot: { kind: "Proyecto académico", title: "Brazo robótico de clasificación por visión artificial", text: "Puesto de clasificación automática: un brazo robótico ordena los objetos reconocidos por una cámara.", points: ["Software de supervisión y control del puesto", "Sitio web de supervisión", "Clasificación automática por visión artificial"], tags: ["Robótica", "Visión", "Supervisión", "Python"] },
       eau: { kind: "Realización", title: "Dispensador automático de agua con monedero", text: "Sistema completo de dispensación controlada, con cobro.", points: ["Lógica de control de la dispensación", "Gestión del cobro con monedero", "Interfaz de usuario"], tags: ["Automatización", "Electrónica", "HMI"] },
@@ -775,12 +779,13 @@ function pickLang() {
 
 function renderProjects(t) {
   $("projects").innerHTML = ORDER[state.mode].map((key, i) => {
-    const p = t.projects[key];
+    const p = t.projects[key], list = ORDER[state.mode];
+    const wide = i === 0 || (i === list.length - 1 && (list.length - 1) % 2 === 1);
     const url = LIVE[key];
     const live = url
       ? `<div class="live"><span class="dot"></span><a href="${url}" target="_blank" rel="noopener">${url.replace("https://", "").replace(/\/$/, "")}</a></div>`
       : "";
-    return `<article class="proj swap${i === 0 ? " lead" : ""}">
+    return `<article class="proj swap${i === 0 ? " lead" : ""}${wide && i > 0 ? " wide" : ""}">
       <div class="meta"><span class="label">${esc(p.kind)}</span></div>
       <h3>${esc(p.title)}</h3>
       <p>${esc(p.text)}</p>
