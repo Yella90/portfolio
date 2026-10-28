@@ -1,6 +1,6 @@
 # Portfolio — Laye Soma Doumbia
 
-Portfolio personnel : mécatronique, automatisme, maintenance industrielle et développement web (Bamako, Mali).
+Portfolio personnel : mécatronique, automatisme, maintenance industrielle, développement web et agents IA (Bamako, Mali).
 
 Le site est une page HTML statique, sans dépendance à installer : ouvrir `index.html` dans un navigateur suffit.
 
