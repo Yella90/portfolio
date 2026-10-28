@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio de Laye Soma Doumbia : mécatronique, automatisme, maintenance industrielle et développement web, Bamako.">
+<title>Laye Soma Doumbia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+/* Layout : plaque signalétique + parcours dessiné en Grafcet, sur une feuille technique bleutée */
+:root {
+  --bg: #EDF0F3;
+  --surface: #FFFFFF;
+  --ink: #121C26;
+  --muted: #55626E;
+  --line: #C6CFD8;
+  --signal: #F2B705;
+  --signal-ink: #121C26;
+  --link: #1C5DA3;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151C; --surface: #16202A; --ink: #E4E9EE; --muted: #93A1AE;
+    --line: #2B3845; --signal: #F2B705; --signal-ink: #0E151C; --link: #86B8EC;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E151C; --surface: #16202A; --ink: #E4E9EE; --muted: #93A1AE;
+  --line: #2B3845; --signal: #F2B705; --signal-ink: #0E151C; --link: #86B8EC;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.6 var(--body);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-attachment: fixed;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--bg); opacity: .86;
+}
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--link); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+.label {
+  font: 500 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+
+/* Barre du haut */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px; }
+.mark { font: 800 15px/1 var(--display); font-stretch: 112%; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+.mark i { width: 12px; height: 12px; background: var(--signal); display: inline-block; }
+.modes { display: flex; border: 1px solid var(--ink); }
+.modes button {
+  font: 500 13px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase;
+  background: transparent; color: var(--ink); border: 0; padding: 10px 14px; cursor: pointer;
+}
+.modes button + button { border-left: 1px solid var(--ink); }
+.modes button:hover { background: var(--surface); }
+.modes button[aria-pressed="true"] { background: var(--signal); color: var(--signal-ink); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px; padding-block: 56px 48px; align-items: start; }
+.hero > * { min-width: 0; }
+.name { font-weight: 800; font-stretch: 125%; line-height: .92; letter-spacing: -.01em; font-size: clamp(44px, 8vw, 92px); }
+.name span { display: block; font-size: .42em; font-weight: 600; font-stretch: 100%; letter-spacing: .14em; color: var(--muted); margin-bottom: .5em; }
+.role { margin-top: 22px; font: 600 clamp(19px, 2.4vw, 25px)/1.25 var(--display); font-stretch: 90%; }
+.role mark { background: var(--signal); color: var(--signal-ink); padding: 0 .2em; }
+.pitch { margin-top: 18px; max-width: 62ch; color: var(--ink); }
+.pitch p { margin: 0 0 12px; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; font: 500 14px/1 var(--body);
+  padding: 12px 16px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; background: var(--surface); cursor: pointer;
+}
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn:hover { transform: translateY(-1px); }
+
+/* Plaque signalétique */
+.plate {
+  position: relative; background: var(--surface); border: 2px solid var(--ink); padding: 26px 24px 22px;
+}
+.plate::before, .plate::after, .plate .s1, .plate .s2 {
+  content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%;
+  border: 1.5px solid var(--muted); background: var(--bg);
+}
+.plate::before { top: 8px; left: 8px; } .plate::after { top: 8px; right: 8px; }
+.plate .s1 { bottom: 8px; left: 8px; } .plate .s2 { bottom: 8px; right: 8px; }
+.plate-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 4px; }
+.plate-head strong { font: 800 18px/1 var(--display); font-stretch: 118%; letter-spacing: .04em; }
+.photo {
+  display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 0;
+  border: 1px solid var(--ink); margin: 14px 0 6px; background: #FFFFFF;
+}
+.plate dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); }
+.plate dt, .plate dd { padding: 9px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.plate dt { font: 500 11px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-right: 16px; padding-top: 11px; }
+.plate dd { font-size: 14.5px; overflow-wrap: anywhere; }
+.plate dl > :nth-last-child(-n+2) { border-bottom: 0; }
+.copy { font: 500 11px/1 var(--mono); text-transform: uppercase; letter-spacing: .06em; margin-left: 8px; background: none; border: 1px solid var(--line); color: var(--muted); padding: 4px 6px; cursor: pointer; }
+.copy:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Sections */
+section { padding-block: 44px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.sec-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; font-stretch: 110%; }
+
+/* Projets */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.proj { background: var(--surface); border: 1px solid var(--line); padding: 22px; display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, opacity .2s; }
+.proj.lead { grid-column: 1 / -1; border: 2px solid var(--ink); }
+.proj .meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.proj h3 { font-size: 22px; font-weight: 700; font-stretch: 100%; }
+.proj p { margin: 0; color: var(--muted); max-width: 70ch; }
+.proj ul { margin: 0; padding-left: 18px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tag { font: 500 12px/1 var(--mono); padding: 6px 8px; border: 1px solid var(--line); color: var(--ink); }
+.proj .live { font: 500 13px/1.4 var(--mono); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2FA35A; margin-right: 6px; vertical-align: 1px; }
+
+/* Compétences */
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+.skill { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; }
+.skill b { display: block; font: 600 15px/1.35 var(--body); margin-bottom: 3px; }
+.skill span { color: var(--muted); font-size: 14.5px; }
+.skill i { width: 14px; height: 14px; border: 2px solid var(--ink); margin-top: 4px; }
+.skill:nth-child(-n+3) i { background: var(--signal); }
+
+/* Parcours Grafcet */
+.grafcet-wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; }
+.grafcet { list-style: none; margin: 0; padding: 0; }
+.step { display: grid; grid-template-columns: 58px minmax(0, 1fr); align-items: start; }
+.step .box {
+  width: 52px; height: 52px; border: 2px solid var(--ink); background: var(--surface);
+  display: grid; place-items: center; font: 700 20px/1 var(--mono); position: relative;
+}
+.step.init .box { outline: 2px solid var(--ink); outline-offset: 3px; }
+.step.active .box { background: var(--signal); color: var(--signal-ink); }
+.step .act { border: 2px solid var(--ink); background: var(--surface); padding: 12px 14px; margin-left: 14px; position: relative; }
+.step .act::before { content: ""; position: absolute; left: -16px; top: 24px; width: 14px; border-top: 2px solid var(--ink); }
+.step .act h3 { font-size: 17px; font-weight: 700; font-stretch: 100%; }
+.step .act p, .step .act ul { margin: 4px 0 0; color: var(--muted); font-size: 14.5px; }
+.step .act ul { padding-left: 18px; }
+.trans { display: grid; grid-template-columns: 58px minmax(0, 1fr); height: 54px; }
+.trans .wire { position: relative; width: 52px; }
+.trans .wire::before { content: ""; position: absolute; left: 25px; top: 0; bottom: 0; border-left: 2px solid var(--ink); }
+.trans .wire::after { content: ""; position: absolute; left: 14px; width: 24px; top: 26px; border-top: 3px solid var(--ink); }
+.trans .cond { font: 500 12.5px/54px var(--mono); color: var(--muted); padding-left: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.side { display: flex; flex-direction: column; gap: 28px; }
+.side h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.bars { display: grid; gap: 12px; }
+.bar { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 12px; align-items: center; font-size: 14.5px; }
+.bar .track { height: 8px; border: 1px solid var(--ink); }
+.bar .fill { height: 100%; background: var(--ink); }
+.bar em { font: 400 12px/1 var(--mono); font-style: normal; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 7px 10px; border: 1px solid var(--line); background: var(--surface); font-size: 14px; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+.contact h2 { font-size: clamp(30px, 5vw, 54px); font-weight: 800; font-stretch: 118%; line-height: 1; }
+.contact .lines { display: grid; gap: 4px; font: 500 clamp(16px, 2vw, 19px)/1.5 var(--mono); }
+.contact .lines div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; overflow-wrap: anywhere; }
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; font: 500 13px/1 var(--mono); }
+
+@media (max-width: 820px) {
+  .hero, .grafcet-wrap, .contact { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .projects { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding-block: 36px 32px; }
+}
+@media (max-width: 480px) {
+  .modes { width: 100%; }
+  .modes button { flex: 1; padding: 10px 6px; font-size: 11.5px; }
+  .step .act { margin-left: 8px; }
+  .step .act::before { left: -10px; width: 8px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .swap { animation: in .35s ease-out; }
+  @keyframes in { from { opacity: .35; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="mark"><i></i>L.S. DOUMBIA</div>
+    <nav class="modes" aria-label="Choisir le profil">
+      <button type="button" id="m-mecatronique" data-mode="mecatronique" aria-pressed="true">Mécatronique</button>
+      <button type="button" id="m-informatique" data-mode="informatique" aria-pressed="false">Informatique</button>
+      <button type="button" id="m-industrie" data-mode="industrie" aria-pressed="false">Industrie</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <p class="label">Portfolio · Bamako, Mali</p>
+      <h1 class="name"><span>DOUMBIA</span>Laye Soma</h1>
+      <p class="role swap" id="role"><mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique</p>
+      <div class="pitch swap" id="pitch">
+        <p>Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.</p>
+        <p>À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle.</p>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Me contacter</a>
+        <a class="btn" href="#projets">Voir les réalisations</a>
+      </div>
+    </div>
+
+    <aside class="plate" aria-label="Fiche signalétique">
+      <i class="s1"></i><i class="s2"></i>
+      <div class="plate-head"><strong>FICHE TECHNIQUE</strong><span class="label">Réf. GEII-MEC</span></div>
+      <img class="photo" src="assets/photo.jpg" alt="Portrait de Laye Soma Doumbia en costume" width="480" height="600">
+      <dl>
+        <dt>Diplôme</dt><dd>Licence Pro Génie Électrique et Informatique Industrielle, option Mécatronique</dd>
+        <dt>École</dt><dd>Institut des Sciences Appliquées, 2022 – 2026</dd>
+        <dt>Bac</dt><dd>Sciences Exactes, 2020 – 2021</dd>
+        <dt>Langues</dt><dd>Français, Bambara, Anglais (intermédiaire)</dd>
+        <dt>En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a></dd>
+        <dt>Statut</dt><dd id="status">Disponible pour un poste ou un stage</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section id="projets">
+    <div class="sec-head">
+      <h2>Réalisations</h2>
+      <span class="label" id="proj-note">Classées pour le profil Mécatronique</span>
+    </div>
+    <div class="projects" id="projects"></div>
+  </section>
+
+  <section id="competences">
+    <div class="sec-head">
+      <h2>Compétences</h2>
+      <span class="label">Les trois premières : points forts du profil</span>
+    </div>
+    <div class="skills swap" id="skills"></div>
+  </section>
+
+  <section id="parcours">
+    <div class="sec-head">
+      <h2>Parcours</h2>
+      <span class="label">Lu comme un Grafcet : étapes, transitions, actions</span>
+    </div>
+    <div class="grafcet-wrap">
+      <ol class="grafcet">
+        <li class="step init">
+          <div class="box">0</div>
+          <div class="act">
+            <h3>Baccalauréat, série Sciences Exactes</h3>
+            <p>Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021</p>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">bac obtenu</div></li>
+        <li class="step">
+          <div class="box">1</div>
+          <div class="act">
+            <h3>Licence Professionnelle GEII, option Mécatronique</h3>
+            <p>Institut des Sciences Appliquées · 2022 – 2026</p>
+            <p>Automatisme, électricité de puissance, électronique, informatique industrielle, DAO/CAO.</p>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">+ formations complémentaires</div></li>
+        <li class="step">
+          <div class="box">2</div>
+          <div class="act">
+            <h3>Formations complémentaires</h3>
+            <ul>
+              <li>Informatique · Exper-Lab</li>
+              <li>Électronique et systèmes embarqués · Orange Digital Center</li>
+              <li>Intelligence artificielle appliquée à l'IoT · Orange Digital Center</li>
+              <li>Robotique universitaire · MaliBots 2024 Challenge, DoniFab</li>
+            </ul>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">mise en pratique sur le terrain</div></li>
+        <li class="step">
+          <div class="box">3</div>
+          <div class="act">
+            <h3>Sall Pro Global, Bamako</h3>
+            <p>Énergie solaire, électricité et sécurité</p>
+            <ul>
+              <li>Installation de systèmes photovoltaïques : panneaux, câblage, onduleurs, batteries</li>
+              <li>Vidéosurveillance : pose, câblage, paramétrage des enregistreurs et de l'accès à distance</li>
+              <li>Maintenance préventive et curative des installations</li>
+            </ul>
+            <p style="margin-top:10px"><strong style="color:var(--ink)">Atelier de groupes électrogènes</strong> : diagnostic des pannes mécaniques et électriques, maintenance, remise en service.</p>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">diplôme 2026 ✓</div></li>
+        <li class="step active">
+          <div class="box">4</div>
+          <div class="act">
+            <h3 id="next-title">Prochaine étape</h3>
+            <p id="next-text">Poste en automatisme, maintenance ou robotique.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="side">
+        <div>
+          <h3>Langues</h3>
+          <div class="bars">
+            <div class="bar"><span>Français</span><div class="track"><div class="fill" style="width:90%"></div></div><em>très bon</em></div>
+            <div class="bar"><span>Bambara</span><div class="track"><div class="fill" style="width:90%"></div></div><em>très bon</em></div>
+            <div class="bar"><span>Anglais</span><div class="track"><div class="fill" style="width:55%"></div></div><em>intermédiaire</em></div>
+          </div>
+        </div>
+        <div>
+          <h3>Qualités</h3>
+          <div class="chips swap" id="soft"></div>
+        </div>
+        <div>
+          <h3>En dehors du travail</h3>
+          <div class="chips">
+            <span class="chip">Sport</span><span class="chip">Musique</span><span class="chip">Lecture</span><span class="chip">Voyage</span><span class="chip">Veille sur les nouvelles technologies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <div>
+        <p class="label">Contact</p>
+        <h2>Travaillons ensemble.</h2>
+        <p class="pitch" id="contact-line">Disponible pour un poste ou un stage au Mali, dès maintenant.</p>
+      </div>
+      <div class="lines">
+        <div><a href="mailto:doumbialayesoma@gmail.com">doumbialayesoma@gmail.com</a><button class="copy" type="button" data-copy="doumbialayesoma@gmail.com">Copier</button></div>
+        <div><span>+223 90 69 23 63</span><button class="copy" type="button" data-copy="+223 90 69 23 63">Copier</button></div>
+        <div style="color:var(--muted)">Kalaban Coura ACI, Bamako</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Laye Soma Doumbia · Ce lien s'ouvre sur un profil précis : ajoutez #mecatronique, #informatique ou #industrie à l'adresse.</div>
+</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const PROJECTS = {
+  erp: {
+    kind: "Projet personnel · en production",
+    title: "Unitech-ERP, plateforme SaaS de gestion scolaire",
+    text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.",
+    points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"],
+    tags: ["Node.js", "EJS", "PostgreSQL", "Render"],
+    live: "https://unitech-erp.onrender.com/"
+  },
+  robot: {
+    kind: "Projet académique",
+    title: "Bras robotisé de tri par vision artificielle",
+    text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.",
+    points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"],
+    tags: ["Robotique", "Vision", "Supervision", "Python"]
+  },
+  eau: {
+    kind: "Réalisation",
+    title: "Distributeur d'eau automatique avec monnayeur",
+    text: "Système complet de distribution commandée, avec encaissement.",
+    points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"],
+    tags: ["Automatisme", "Électronique", "IHM"]
+  },
+  verin: {
+    kind: "Projet académique",
+    title: "Commande d'un vérin pneumatique et d'un moteur monophasé par API",
+    text: "Automatisation d'un cycle sur automate programmable.",
+    points: ["Programmation du cycle en Grafcet et Ladder", "Câblage commande et puissance", "Essais et mise au point"],
+    tags: ["API", "Grafcet", "Ladder", "Pneumatique"]
+  },
+  moteur: {
+    kind: "Projet académique",
+    title: "Contrôle d'un moteur pas à pas et d'un servomoteur",
+    text: "Système de commande en position et en vitesse de deux types de moteurs.",
+    points: ["Circuit de commande", "Pilotage pas à pas et servomoteur"],
+    tags: ["Électronique", "Motorisation", "Embarqué"]
+  }
+};
+
+const MODES = {
+  mecatronique: {
+    label: "Mécatronique",
+    role: "<mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique",
+    pitch: [
+      "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.",
+      "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle."
+    ],
+    order: ["robot", "verin", "moteur", "eau", "erp"],
+    skills: [
+      ["Automatisme", "Programmation des API, Grafcet, Ladder, commande de vérins et de moteurs"],
+      ["Robotique", "Pilotage de bras robotisé, tri automatique, vision artificielle"],
+      ["Électricité & électromécanique", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
+      ["IA & IoT", "Intelligence artificielle appliquée à l'IoT, électronique et systèmes embarqués"],
+      ["DAO / CAO", "SolidWorks, AutoCAD"],
+      ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
+      ["Informatique industrielle", "Supervision et IHM, interfaces Kivy MD (Python), web (Django, React, EJS)"],
+      ["Bureautique", "Word, PowerPoint, Excel, Access"]
+    ],
+    soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
+    next: "Un poste en automatisme, mécatronique ou robotique. Également ouvert aux offres en développement web et logiciel.",
+    status: "Ouvert aux offres en mécatronique, industrie et informatique"
+  },
+  informatique: {
+    label: "Informatique",
+    role: "<mark>Développeur</mark> · Web &amp; logiciel",
+    pitch: [
+      "Développeur web et logiciel issu d'une Licence Professionnelle en Génie Électrique et Informatique Industrielle. Je mène une application de bout en bout : base de données, back-end, interface utilisateur et mise en production.",
+      "Autodidacte et rigoureux, j'ai conçu seul une plateforme SaaS de gestion scolaire aujourd'hui en ligne, ainsi que le logiciel de supervision d'un bras robotisé de tri par vision artificielle."
+    ],
+    order: ["erp", "robot", "eau", "verin", "moteur"],
+    skills: [
+      ["Back-end", "Python (Django), Node.js, EJS"],
+      ["Front-end", "React, JavaScript, HTML, CSS"],
+      ["Bases de données", "PostgreSQL, SQLite, Access"],
+      ["Applications", "Interfaces graphiques Kivy MD (Python)"],
+      ["Outils & déploiement", "Git, Render, gestion de projet"],
+      ["Informatique industrielle", "Programmation des API (Grafcet, Ladder), supervision"],
+      ["Bureautique", "Word, PowerPoint, Excel, Access"]
+    ],
+    soft: ["Autonomie et autodidaxie", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
+    next: "Un poste de développeur, ou un stage de 3 mois en génie logiciel.",
+    status: "Ouvert aux offres en informatique, mécatronique et industrie"
+  },
+  industrie: {
+    label: "Industrie",
+    role: "<mark>Technicien industriel</mark> · Maintenance &amp; production",
+    pitch: [
+      "Technicien polyvalent formé en Génie Électrique et Informatique Industrielle, opérationnel sur les équipements de production : électricité et puissance, motorisation, pneumatique, automates et supervision.",
+      "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures."
+    ],
+    order: ["verin", "robot", "eau", "moteur", "erp"],
+    skills: [
+      ["Maintenance industrielle", "Diagnostic de pannes, maintenance préventive et curative, réparation et remise en service des groupes électrogènes"],
+      ["Automatisation de ligne", "Programmation des API (Grafcet, Ladder), vérins pneumatiques, capteurs et actionneurs"],
+      ["Équipements électriques", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
+      ["Contrôle qualité", "Poste de tri robotisé, vision artificielle, supervision de poste"],
+      ["Documentation technique", "Lecture et réalisation de plans AutoCAD et SolidWorks"],
+      ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
+      ["Outils numériques", "IHM et supervision, applications de suivi (Python, Node.js, PostgreSQL)"],
+      ["Bureautique", "Word, PowerPoint, Excel, Access : rapports et procédures"]
+    ],
+    soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
+    next: "Un poste de technicien en maintenance ou en production industrielle. Également ouvert aux offres en développement web et logiciel.",
+    status: "Ouvert aux offres en industrie, mécatronique et informatique"
+  }
+};
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function renderProjects(order) {
+  $("projects").innerHTML = order.map((key, i) => {
+    const p = PROJECTS[key];
+    const live = p.live
+      ? `<div class="live"><span class="dot"></span><a href="${p.live}" target="_blank" rel="noopener">${p.live.replace("https://", "").replace(/\/$/, "")}</a></div>`
+      : "";
+    return `<article class="proj swap${i === 0 ? " lead" : ""}">
+      <div class="meta"><span class="label">${esc(p.kind)}</span></div>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.text)}</p>
+      <ul>${p.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      ${live}
+      <div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+    </article>`;
+  }).join("");
+}
+
+function setMode(mode, push) {
+  const m = MODES[mode] || MODES.mecatronique;
+  mode = MODES[mode] ? mode : "mecatronique";
+  document.querySelectorAll(".modes button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
+  $("role").innerHTML = m.role;
+  $("pitch").innerHTML = m.pitch.map((p) => `<p>${esc(p)}</p>`).join("");
+  $("skills").innerHTML = m.skills.map(([t, d]) => `<div class="skill"><i></i><div><b>${esc(t)}</b><span>${esc(d)}</span></div></div>`).join("");
+  $("soft").innerHTML = m.soft.map((s) => `<span class="chip">${esc(s)}</span>`).join("");
+  $("next-text").textContent = m.next;
+  $("status").textContent = m.status;
+  $("contact-line").textContent = m.next.replace(/^Un /, "Je recherche un ");
+  $("proj-note").textContent = "Classées pour le profil " + m.label;
+  renderProjects(m.order);
+  ["role", "pitch", "skills", "soft"].forEach((id) => { const el = $(id); el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); });
+  if (push) { try { history.replaceState(null, "", "#" + mode); } catch (e) {} }
+}
+
+document.querySelectorAll(".modes button").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode, true)));
+
+let toastTimer;
+function toast(msg) {
+  const t = $("toast"); t.textContent = msg; t.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 1800);
+}
+document.querySelectorAll(".copy").forEach((b) => b.addEventListener("click", () => {
+  const text = b.dataset.copy;
+  const done = () => toast("Copié : " + text);
+  const fallback = () => {
+    const r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Texte sélectionné, faites Ctrl+C");
+  };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+}));
+
+const initial = (location.hash || "").slice(1);
+setMode(MODES[initial] ? initial : "mecatronique", false);
+</script>
+</body>
+</html>
