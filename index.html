@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfolio de Laye Soma Doumbia : mécatronique, automatisme, maintenance industrielle et développement web, Bamako.">
+<meta name="description" content="Portfolio de Laye Soma Doumbia : mécatronique, automatisme, maintenance industrielle et développement web, Bamako. Disponible en français, anglais et espagnol.">
+<link rel="alternate" hreflang="fr" href="https://yella90.github.io/portfolio/">
+<link rel="alternate" hreflang="en" href="https://yella90.github.io/portfolio/?lang=en">
+<link rel="alternate" hreflang="es" href="https://yella90.github.io/portfolio/?lang=es">
 <title>Laye Soma Doumbia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,146 +210,149 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
   .swap { animation: in .35s ease-out; }
   @keyframes in { from { opacity: .35; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 }
+/* Sélecteurs langue + profil */
+.switches { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.langs { display: flex; border: 1px solid var(--line); }
+.langs button {
+  font: 500 12px/1 var(--mono); letter-spacing: .06em; background: transparent; color: var(--muted);
+  border: 0; padding: 10px 10px; cursor: pointer;
+}
+.langs button + button { border-left: 1px solid var(--line); }
+.langs button:hover { color: var(--ink); }
+.langs button[aria-pressed="true"] { color: var(--ink); background: var(--surface); font-weight: 700; }
+@media (max-width: 480px) { .switches { width: 100%; } .langs { width: 100%; } .langs button { flex: 1; } }
 </style>
 </head>
 <body>
-
 <header class="top">
   <div class="wrap">
     <div class="mark"><i></i>L.S. DOUMBIA</div>
-    <nav class="modes" aria-label="Choisir le profil">
-      <button type="button" id="m-mecatronique" data-mode="mecatronique" aria-pressed="true">Mécatronique</button>
-      <button type="button" id="m-informatique" data-mode="informatique" aria-pressed="false">Informatique</button>
-      <button type="button" id="m-industrie" data-mode="industrie" aria-pressed="false">Industrie</button>
-    </nav>
+    <div class="switches">
+      <nav class="langs" id="langs" aria-label="Langue / Language / Idioma">
+        <button type="button" id="l-fr" data-lang="fr" lang="fr" aria-pressed="true">FR</button>
+        <button type="button" id="l-en" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="l-es" data-lang="es" lang="es" aria-pressed="false">ES</button>
+      </nav>
+      <nav class="modes" id="modes" data-i18n-aria="modesAria" aria-label="Choisir le profil">
+        <button type="button" id="m-mecatronique" data-mode="mecatronique" aria-pressed="true">Mécatronique</button>
+        <button type="button" id="m-informatique" data-mode="informatique" aria-pressed="false">Informatique</button>
+        <button type="button" id="m-industrie" data-mode="industrie" aria-pressed="false">Industrie</button>
+      </nav>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
   <div class="hero">
     <div>
-      <p class="label">Portfolio · Bamako, Mali</p>
+      <p class="label" data-i18n="eyebrow">Portfolio · Bamako, Mali</p>
       <h1 class="name"><span>DOUMBIA</span>Laye Soma</h1>
-      <p class="role swap" id="role"><mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique</p>
-      <div class="pitch swap" id="pitch">
-        <p>Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.</p>
-        <p>À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle.</p>
-      </div>
+      <p class="role swap" id="role"></p>
+      <div class="pitch swap" id="pitch"></div>
       <div class="cta">
-        <a class="btn primary" href="#contact">Me contacter</a>
-        <a class="btn" href="#projets">Voir les réalisations</a>
+        <a class="btn primary" href="#contact" data-i18n="ctaContact">Me contacter</a>
+        <a class="btn" href="#projets" data-i18n="ctaWork">Voir les réalisations</a>
       </div>
     </div>
 
-    <aside class="plate" aria-label="Fiche signalétique">
+    <aside class="plate" data-i18n-aria="plateAria" aria-label="Fiche signalétique">
       <i class="s1"></i><i class="s2"></i>
-      <div class="plate-head"><strong>FICHE TECHNIQUE</strong><span class="label">Réf. GEII-MEC</span></div>
-      <img class="photo" src="assets/photo.jpg" alt="Portrait de Laye Soma Doumbia en costume" width="480" height="600">
+      <div class="plate-head"><strong data-i18n="plateTitle">FICHE TECHNIQUE</strong><span class="label" data-i18n="plateRef">Réf. GEII-MEC</span></div>
+      <img class="photo" id="photo" src="assets/photo.jpg" alt="Portrait de Laye Soma Doumbia en costume" width="480" height="600">
       <dl>
-        <dt>Diplôme</dt><dd>Licence Pro Génie Électrique et Informatique Industrielle, option Mécatronique</dd>
-        <dt>École</dt><dd>Institut des Sciences Appliquées, 2022 – 2026</dd>
-        <dt>Bac</dt><dd>Sciences Exactes, 2020 – 2021</dd>
-        <dt>Langues</dt><dd>Français, Bambara, Anglais (intermédiaire)</dd>
-        <dt>En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a></dd>
-        <dt>Statut</dt><dd id="status">Disponible pour un poste ou un stage</dd>
+        <dt data-i18n="dtDegree">Diplôme</dt><dd data-i18n="ddDegree"></dd>
+        <dt data-i18n="dtSchool">École</dt><dd data-i18n="ddSchool"></dd>
+        <dt data-i18n="dtBac">Bac</dt><dd data-i18n="ddBac"></dd>
+        <dt data-i18n="dtLangs">Langues</dt><dd data-i18n="ddLangs"></dd>
+        <dt data-i18n="dtOnline">En ligne</dt><dd><a href="https://unitech-erp.onrender.com/" target="_blank" rel="noopener">unitech-erp.onrender.com</a></dd>
+        <dt data-i18n="dtStatus">Statut</dt><dd id="status"></dd>
       </dl>
     </aside>
   </div>
 
   <section id="projets">
     <div class="sec-head">
-      <h2>Réalisations</h2>
-      <span class="label" id="proj-note">Classées pour le profil Mécatronique</span>
+      <h2 data-i18n="secProjects">Réalisations</h2>
+      <span class="label" id="proj-note"></span>
     </div>
     <div class="projects" id="projects"></div>
   </section>
 
   <section id="competences">
     <div class="sec-head">
-      <h2>Compétences</h2>
-      <span class="label">Les trois premières : points forts du profil</span>
+      <h2 data-i18n="secSkills">Compétences</h2>
+      <span class="label" data-i18n="skillsNote">Les trois premières : points forts du profil</span>
     </div>
     <div class="skills swap" id="skills"></div>
   </section>
 
   <section id="parcours">
     <div class="sec-head">
-      <h2>Parcours</h2>
-      <span class="label">Lu comme un Grafcet : étapes, transitions, actions</span>
+      <h2 data-i18n="secPath">Parcours</h2>
+      <span class="label" data-i18n="pathNote">Lu comme un Grafcet : étapes, transitions, actions</span>
     </div>
     <div class="grafcet-wrap">
       <ol class="grafcet">
         <li class="step init">
           <div class="box">0</div>
           <div class="act">
-            <h3>Baccalauréat, série Sciences Exactes</h3>
-            <p>Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021</p>
+            <h3 data-i18n="s0Title"></h3>
+            <p data-i18n="s0Sub"></p>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">bac obtenu</div></li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t0"></div></li>
         <li class="step">
           <div class="box">1</div>
           <div class="act">
-            <h3>Licence Professionnelle GEII, option Mécatronique</h3>
-            <p>Institut des Sciences Appliquées · 2022 – 2026</p>
-            <p>Automatisme, électricité de puissance, électronique, informatique industrielle, DAO/CAO.</p>
+            <h3 data-i18n="s1Title"></h3>
+            <p data-i18n="s1Sub"></p>
+            <p data-i18n="s1Desc"></p>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">+ formations complémentaires</div></li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t1"></div></li>
         <li class="step">
           <div class="box">2</div>
           <div class="act">
-            <h3>Formations complémentaires</h3>
-            <ul>
-              <li>Informatique · Exper-Lab</li>
-              <li>Électronique et systèmes embarqués · Orange Digital Center</li>
-              <li>Intelligence artificielle appliquée à l'IoT · Orange Digital Center</li>
-              <li>Robotique universitaire · MaliBots 2024 Challenge, DoniFab</li>
-            </ul>
+            <h3 data-i18n="s2Title"></h3>
+            <ul data-i18n="s2List"></ul>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">mise en pratique sur le terrain</div></li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t2"></div></li>
         <li class="step">
           <div class="box">3</div>
           <div class="act">
             <h3>Sall Pro Global, Bamako</h3>
-            <p>Énergie solaire, électricité et sécurité</p>
-            <ul>
-              <li>Installation de systèmes photovoltaïques : panneaux, câblage, onduleurs, batteries</li>
-              <li>Vidéosurveillance : pose, câblage, paramétrage des enregistreurs et de l'accès à distance</li>
-              <li>Maintenance préventive et curative des installations</li>
-            </ul>
-            <p style="margin-top:10px"><strong style="color:var(--ink)">Atelier de groupes électrogènes</strong> : diagnostic des pannes mécaniques et électriques, maintenance, remise en service.</p>
+            <p data-i18n="s3Sub"></p>
+            <ul data-i18n="s3List"></ul>
+            <p style="margin-top:10px" data-i18n="s3Gen"></p>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond">diplôme 2026 ✓</div></li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t3"></div></li>
         <li class="step active">
           <div class="box">4</div>
           <div class="act">
-            <h3 id="next-title">Prochaine étape</h3>
-            <p id="next-text">Poste en automatisme, maintenance ou robotique.</p>
+            <h3 data-i18n="s4Title"></h3>
+            <p id="next-text"></p>
           </div>
         </li>
       </ol>
 
       <div class="side">
         <div>
-          <h3>Langues</h3>
+          <h3 data-i18n="sideLangs">Langues</h3>
           <div class="bars">
-            <div class="bar"><span>Français</span><div class="track"><div class="fill" style="width:90%"></div></div><em>très bon</em></div>
-            <div class="bar"><span>Bambara</span><div class="track"><div class="fill" style="width:90%"></div></div><em>très bon</em></div>
-            <div class="bar"><span>Anglais</span><div class="track"><div class="fill" style="width:55%"></div></div><em>intermédiaire</em></div>
+            <div class="bar"><span data-i18n="langFr">Français</span><div class="track"><div class="fill" style="width:90%"></div></div><em data-i18n="lvlGood">très bon</em></div>
+            <div class="bar"><span>Bambara</span><div class="track"><div class="fill" style="width:90%"></div></div><em data-i18n="lvlGood">très bon</em></div>
+            <div class="bar"><span data-i18n="langEn">Anglais</span><div class="track"><div class="fill" style="width:55%"></div></div><em data-i18n="lvlMid">intermédiaire</em></div>
           </div>
         </div>
         <div>
-          <h3>Qualités</h3>
+          <h3 data-i18n="sideSoft">Qualités</h3>
           <div class="chips swap" id="soft"></div>
         </div>
         <div>
-          <h3>En dehors du travail</h3>
-          <div class="chips">
-            <span class="chip">Sport</span><span class="chip">Musique</span><span class="chip">Lecture</span><span class="chip">Voyage</span><span class="chip">Veille sur les nouvelles technologies</span>
-          </div>
+          <h3 data-i18n="sideHobbies">En dehors du travail</h3>
+          <div class="chips" data-i18n="hobbies"></div>
         </div>
       </div>
     </div>
@@ -355,140 +361,421 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
   <section id="contact">
     <div class="contact">
       <div>
-        <p class="label">Contact</p>
-        <h2>Travaillons ensemble.</h2>
-        <p class="pitch" id="contact-line">Disponible pour un poste ou un stage au Mali, dès maintenant.</p>
+        <p class="label" data-i18n="contactLabel">Contact</p>
+        <h2 data-i18n="contactTitle">Travaillons ensemble.</h2>
+        <p class="pitch" id="contact-line"></p>
       </div>
       <div class="lines">
-        <div><a href="mailto:doumbialayesoma@gmail.com">doumbialayesoma@gmail.com</a><button class="copy" type="button" data-copy="doumbialayesoma@gmail.com">Copier</button></div>
-        <div><span>+223 90 69 23 63</span><button class="copy" type="button" data-copy="+223 90 69 23 63">Copier</button></div>
-        <div style="color:var(--muted)">Kalaban Coura ACI, Bamako</div>
+        <div><a href="mailto:doumbialayesoma@gmail.com">doumbialayesoma@gmail.com</a><button class="copy" type="button" data-copy="doumbialayesoma@gmail.com" data-i18n="copy">Copier</button></div>
+        <div><span>+223 90 69 23 63</span><button class="copy" type="button" data-copy="+223 90 69 23 63" data-i18n="copy">Copier</button></div>
+        <div style="color:var(--muted)" data-i18n="address">Kalaban Coura ACI, Bamako</div>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Laye Soma Doumbia · Ce lien s'ouvre sur un profil précis : ajoutez #mecatronique, #informatique ou #industrie à l'adresse.</div>
+  <div class="wrap" data-i18n="footer"></div>
 </footer>
 <div class="toast" id="toast" hidden></div>
 
 <script>
-const PROJECTS = {
-  erp: {
-    kind: "Projet personnel · en production",
-    title: "Unitech-ERP, plateforme SaaS de gestion scolaire",
-    text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.",
-    points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"],
-    tags: ["Node.js", "EJS", "PostgreSQL", "Render"],
-    live: "https://unitech-erp.onrender.com/"
-  },
-  robot: {
-    kind: "Projet académique",
-    title: "Bras robotisé de tri par vision artificielle",
-    text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.",
-    points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"],
-    tags: ["Robotique", "Vision", "Supervision", "Python"]
-  },
-  eau: {
-    kind: "Réalisation",
-    title: "Distributeur d'eau automatique avec monnayeur",
-    text: "Système complet de distribution commandée, avec encaissement.",
-    points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"],
-    tags: ["Automatisme", "Électronique", "IHM"]
-  },
-  verin: {
-    kind: "Projet académique",
-    title: "Commande d'un vérin pneumatique et d'un moteur monophasé par API",
-    text: "Automatisation d'un cycle sur automate programmable.",
-    points: ["Programmation du cycle en Grafcet et Ladder", "Câblage commande et puissance", "Essais et mise au point"],
-    tags: ["API", "Grafcet", "Ladder", "Pneumatique"]
-  },
-  moteur: {
-    kind: "Projet académique",
-    title: "Contrôle d'un moteur pas à pas et d'un servomoteur",
-    text: "Système de commande en position et en vitesse de deux types de moteurs.",
-    points: ["Circuit de commande", "Pilotage pas à pas et servomoteur"],
-    tags: ["Électronique", "Motorisation", "Embarqué"]
-  }
+const ORDER = {
+  mecatronique: ["robot", "verin", "moteur", "eau", "erp"],
+  informatique: ["erp", "robot", "eau", "verin", "moteur"],
+  industrie: ["verin", "robot", "eau", "moteur", "erp"]
 };
+const LIVE = { erp: "https://unitech-erp.onrender.com/" };
 
-const MODES = {
-  mecatronique: {
-    label: "Mécatronique",
-    role: "<mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique",
-    pitch: [
-      "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.",
-      "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle."
-    ],
-    order: ["robot", "verin", "moteur", "eau", "erp"],
-    skills: [
-      ["Automatisme", "Programmation des API, Grafcet, Ladder, commande de vérins et de moteurs"],
-      ["Robotique", "Pilotage de bras robotisé, tri automatique, vision artificielle"],
-      ["Électricité & électromécanique", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
-      ["IA & IoT", "Intelligence artificielle appliquée à l'IoT, électronique et systèmes embarqués"],
-      ["DAO / CAO", "SolidWorks, AutoCAD"],
-      ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
-      ["Informatique industrielle", "Supervision et IHM, interfaces Kivy MD (Python), web (Django, React, EJS)"],
-      ["Bureautique", "Word, PowerPoint, Excel, Access"]
-    ],
-    soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
-    next: "Un poste en automatisme, mécatronique ou robotique. Également ouvert aux offres en développement web et logiciel.",
-    status: "Ouvert aux offres en mécatronique, industrie et informatique"
+const T = {
+  fr: {
+    ui: {
+      title: "Laye Soma Doumbia · Portfolio",
+      modesAria: "Choisir le profil",
+      plateAria: "Fiche signalétique",
+      eyebrow: "Portfolio · Bamako, Mali",
+      ctaContact: "Me contacter",
+      ctaWork: "Voir les réalisations",
+      plateTitle: "FICHE TECHNIQUE",
+      plateRef: "Réf. GEII-MEC",
+      photoAlt: "Portrait de Laye Soma Doumbia en costume",
+      dtDegree: "Diplôme", ddDegree: "Licence Pro Génie Électrique et Informatique Industrielle, option Mécatronique",
+      dtSchool: "École", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtBac: "Bac", ddBac: "Sciences Exactes, 2020 – 2021",
+      dtLangs: "Langues", ddLangs: "Français, Bambara, Anglais (intermédiaire)",
+      dtOnline: "En ligne", dtStatus: "Statut",
+      secProjects: "Réalisations",
+      projNote: (p) => "Classées pour le profil " + p,
+      secSkills: "Compétences",
+      skillsNote: "Les trois premières : points forts du profil",
+      secPath: "Parcours",
+      pathNote: "Lu comme un Grafcet : étapes, transitions, actions",
+      s0Title: "Baccalauréat, série Sciences Exactes",
+      s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
+      t0: "bac obtenu",
+      s1Title: "Licence Professionnelle GEII, option Mécatronique",
+      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Desc: "Automatisme, électricité de puissance, électronique, informatique industrielle, DAO/CAO.",
+      t1: "+ formations complémentaires",
+      s2Title: "Formations complémentaires",
+      s2List: ["Informatique · Exper-Lab", "Électronique et systèmes embarqués · Orange Digital Center", "Intelligence artificielle appliquée à l'IoT · Orange Digital Center", "Robotique universitaire · MaliBots 2024 Challenge, DoniFab"],
+      t2: "mise en pratique sur le terrain",
+      s3Sub: "Énergie solaire, électricité et sécurité",
+      s3List: ["Installation de systèmes photovoltaïques : panneaux, câblage, onduleurs, batteries", "Vidéosurveillance : pose, câblage, paramétrage des enregistreurs et de l'accès à distance", "Maintenance préventive et curative des installations"],
+      s3Gen: "<strong style=\"color:var(--ink)\">Atelier de groupes électrogènes</strong> : diagnostic des pannes mécaniques et électriques, maintenance, remise en service.",
+      t3: "diplôme 2026 ✓",
+      s4Title: "Prochaine étape",
+      sideLangs: "Langues", langFr: "Français", langEn: "Anglais", lvlGood: "très bon", lvlMid: "intermédiaire",
+      sideSoft: "Qualités",
+      sideHobbies: "En dehors du travail",
+      hobbies: ["Sport", "Musique", "Lecture", "Voyage", "Veille sur les nouvelles technologies"],
+      contactLabel: "Contact",
+      contactTitle: "Travaillons ensemble.",
+      copy: "Copier", copied: "Copié : ", selected: "Texte sélectionné, faites Ctrl+C",
+      address: "Kalaban Coura ACI, Bamako, Mali",
+      footer: "© 2026 Laye Soma Doumbia · Liens directs : ajoutez #mecatronique, #informatique ou #industrie à l'adresse."
+    },
+    modes: {
+      mecatronique: {
+        label: "Mécatronique",
+        role: "<mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique",
+        pitch: [
+          "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique.",
+          "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle."
+        ],
+        skills: [
+          ["Automatisme", "Programmation des API, Grafcet, Ladder, commande de vérins et de moteurs"],
+          ["Robotique", "Pilotage de bras robotisé, tri automatique, vision artificielle"],
+          ["Électricité & électromécanique", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
+          ["IA & IoT", "Intelligence artificielle appliquée à l'IoT, électronique et systèmes embarqués"],
+          ["DAO / CAO", "SolidWorks, AutoCAD"],
+          ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
+          ["Informatique industrielle", "Supervision et IHM, interfaces Kivy MD (Python), web (Django, React, EJS)"],
+          ["Bureautique", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
+        next: "Un poste en automatisme, mécatronique ou robotique. Également ouvert aux offres en développement web et logiciel.",
+        contact: "Je recherche un poste en automatisme, mécatronique ou robotique, et je suis aussi ouvert aux offres en développement web et logiciel.",
+        status: "Ouvert aux offres en mécatronique, industrie et informatique"
+      },
+      informatique: {
+        label: "Informatique",
+        role: "<mark>Développeur</mark> · Web &amp; logiciel",
+        pitch: [
+          "Développeur web et logiciel issu d'une Licence Professionnelle en Génie Électrique et Informatique Industrielle. Je mène une application de bout en bout : base de données, back-end, interface utilisateur et mise en production.",
+          "Autodidacte et rigoureux, j'ai conçu seul une plateforme SaaS de gestion scolaire aujourd'hui en ligne, ainsi que le logiciel de supervision d'un bras robotisé de tri par vision artificielle."
+        ],
+        skills: [
+          ["Back-end", "Python (Django), Node.js, EJS"],
+          ["Front-end", "React, JavaScript, HTML, CSS"],
+          ["Bases de données", "PostgreSQL, SQLite, Access"],
+          ["Applications", "Interfaces graphiques Kivy MD (Python)"],
+          ["Outils & déploiement", "Git, Render, gestion de projet"],
+          ["Informatique industrielle", "Programmation des API (Grafcet, Ladder), supervision"],
+          ["Bureautique", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Autonomie et autodidaxie", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
+        next: "Un poste de développeur, ou un stage de 3 mois en génie logiciel.",
+        contact: "Je recherche un poste de développeur, ou un stage de 3 mois en génie logiciel.",
+        status: "Ouvert aux offres en informatique, mécatronique et industrie"
+      },
+      industrie: {
+        label: "Industrie",
+        role: "<mark>Technicien industriel</mark> · Maintenance &amp; production",
+        pitch: [
+          "Technicien polyvalent formé en Génie Électrique et Informatique Industrielle, opérationnel sur les équipements de production : électricité et puissance, motorisation, pneumatique, automates et supervision.",
+          "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures."
+        ],
+        skills: [
+          ["Maintenance industrielle", "Diagnostic de pannes, maintenance préventive et curative, réparation et remise en service des groupes électrogènes"],
+          ["Automatisation de ligne", "Programmation des API (Grafcet, Ladder), vérins pneumatiques, capteurs et actionneurs"],
+          ["Équipements électriques", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
+          ["Contrôle qualité", "Poste de tri robotisé, vision artificielle, supervision de poste"],
+          ["Documentation technique", "Lecture et réalisation de plans AutoCAD et SolidWorks"],
+          ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
+          ["Outils numériques", "IHM et supervision, applications de suivi (Python, Node.js, PostgreSQL)"],
+          ["Bureautique", "Word, PowerPoint, Excel, Access : rapports et procédures"]
+        ],
+        soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
+        next: "Un poste de technicien en maintenance ou en production industrielle. Également ouvert aux offres en développement web et logiciel.",
+        contact: "Je recherche un poste de technicien en maintenance ou en production industrielle, et je suis aussi ouvert aux offres en développement web et logiciel.",
+        status: "Ouvert aux offres en industrie, mécatronique et informatique"
+      }
+    },
+    projects: {
+      erp: { kind: "Projet personnel · en production", title: "Unitech-ERP, plateforme SaaS de gestion scolaire", text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.", points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
+      robot: { kind: "Projet académique", title: "Bras robotisé de tri par vision artificielle", text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.", points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"], tags: ["Robotique", "Vision", "Supervision", "Python"] },
+      eau: { kind: "Réalisation", title: "Distributeur d'eau automatique avec monnayeur", text: "Système complet de distribution commandée, avec encaissement.", points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"], tags: ["Automatisme", "Électronique", "IHM"] },
+      verin: { kind: "Projet académique", title: "Commande d'un vérin pneumatique et d'un moteur monophasé par API", text: "Automatisation d'un cycle sur automate programmable.", points: ["Programmation du cycle en Grafcet et Ladder", "Câblage commande et puissance", "Essais et mise au point"], tags: ["API", "Grafcet", "Ladder", "Pneumatique"] },
+      moteur: { kind: "Projet académique", title: "Contrôle d'un moteur pas à pas et d'un servomoteur", text: "Système de commande en position et en vitesse de deux types de moteurs.", points: ["Circuit de commande", "Pilotage pas à pas et servomoteur"], tags: ["Électronique", "Motorisation", "Embarqué"] }
+    }
   },
-  informatique: {
-    label: "Informatique",
-    role: "<mark>Développeur</mark> · Web &amp; logiciel",
-    pitch: [
-      "Développeur web et logiciel issu d'une Licence Professionnelle en Génie Électrique et Informatique Industrielle. Je mène une application de bout en bout : base de données, back-end, interface utilisateur et mise en production.",
-      "Autodidacte et rigoureux, j'ai conçu seul une plateforme SaaS de gestion scolaire aujourd'hui en ligne, ainsi que le logiciel de supervision d'un bras robotisé de tri par vision artificielle."
-    ],
-    order: ["erp", "robot", "eau", "verin", "moteur"],
-    skills: [
-      ["Back-end", "Python (Django), Node.js, EJS"],
-      ["Front-end", "React, JavaScript, HTML, CSS"],
-      ["Bases de données", "PostgreSQL, SQLite, Access"],
-      ["Applications", "Interfaces graphiques Kivy MD (Python)"],
-      ["Outils & déploiement", "Git, Render, gestion de projet"],
-      ["Informatique industrielle", "Programmation des API (Grafcet, Ladder), supervision"],
-      ["Bureautique", "Word, PowerPoint, Excel, Access"]
-    ],
-    soft: ["Autonomie et autodidaxie", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
-    next: "Un poste de développeur, ou un stage de 3 mois en génie logiciel.",
-    status: "Ouvert aux offres en informatique, mécatronique et industrie"
+
+  en: {
+    ui: {
+      title: "Laye Soma Doumbia · Portfolio",
+      modesAria: "Choose a profile",
+      plateAria: "Spec sheet",
+      eyebrow: "Portfolio · Bamako, Mali",
+      ctaContact: "Contact me",
+      ctaWork: "See my work",
+      plateTitle: "SPEC SHEET",
+      plateRef: "Ref. GEII-MEC",
+      photoAlt: "Portrait of Laye Soma Doumbia in a suit",
+      dtDegree: "Degree", ddDegree: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option",
+      dtSchool: "School", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtBac: "High school", ddBac: "Malian Baccalaureate, Exact Sciences, 2020 – 2021",
+      dtLangs: "Languages", ddLangs: "French, Bambara, English (intermediate)",
+      dtOnline: "Online", dtStatus: "Status",
+      secProjects: "Projects",
+      projNote: (p) => "Ordered for the " + p + " profile",
+      secSkills: "Skills",
+      skillsNote: "First three: the profile's core strengths",
+      secPath: "Background",
+      pathNote: "Drawn as a GRAFCET chart: steps, transitions, actions",
+      s0Title: "Malian Baccalaureate, Exact Sciences track",
+      s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
+      t0: "diploma earned",
+      s1Title: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option",
+      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Desc: "Automation, power electronics, electronics, industrial computing, CAD.",
+      t1: "+ additional training",
+      s2Title: "Additional training",
+      s2List: ["Computer science · Exper-Lab", "Electronics and embedded systems · Orange Digital Center", "Artificial intelligence for IoT · Orange Digital Center", "University robotics · MaliBots 2024 Challenge, DoniFab"],
+      t2: "hands-on field work",
+      s3Sub: "Solar energy, electrical work and security",
+      s3List: ["Solar PV installation: panels, wiring, inverters, batteries", "CCTV: mounting, wiring, recorder setup and remote access", "Preventive and corrective maintenance of installations"],
+      s3Gen: "<strong style=\"color:var(--ink)\">Generator repair workshop</strong>: diagnosis of mechanical and electrical faults, maintenance, return to service.",
+      t3: "graduated 2026 ✓",
+      s4Title: "Next step",
+      sideLangs: "Languages", langFr: "French", langEn: "English", lvlGood: "fluent", lvlMid: "intermediate",
+      sideSoft: "Strengths",
+      sideHobbies: "Outside work",
+      hobbies: ["Sports", "Music", "Reading", "Travel", "Keeping up with new technology"],
+      contactLabel: "Contact",
+      contactTitle: "Let's work together.",
+      copy: "Copy", copied: "Copied: ", selected: "Text selected, press Ctrl+C",
+      address: "Kalaban Coura ACI, Bamako, Mali",
+      footer: "© 2026 Laye Soma Doumbia · Direct links: add #mecatronique, #informatique or #industrie to the address, and ?lang=en before the #."
+    },
+    modes: {
+      mecatronique: {
+        label: "Mechatronics",
+        role: "<mark>Mechatronics</mark> · Automation, electromechanics &amp; robotics",
+        pitch: [
+          "Graduate in Electrical Engineering and Industrial Computing (mechatronics option), focused on intelligent systems, automation, CAD (SolidWorks, AutoCAD) and robotics.",
+          "Comfortable across the whole automated system: electrical and power circuits, sensors and actuators, PLC programming, supervision and software integration."
+        ],
+        skills: [
+          ["Automation", "PLC programming, GRAFCET, Ladder, control of cylinders and motors"],
+          ["Robotics", "Robotic arm control, automated sorting, computer vision"],
+          ["Electrical & electromechanical", "Control and power circuits, wiring, single-phase, stepper and servo motors"],
+          ["AI & IoT", "Artificial intelligence for IoT, electronics and embedded systems"],
+          ["CAD", "SolidWorks, AutoCAD"],
+          ["Solar energy & security", "Solar PV installation (panels, inverters, batteries), CCTV"],
+          ["Industrial computing", "SCADA and HMI, Kivy MD interfaces (Python), web (Django, React, EJS)"],
+          ["Office tools", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Adaptability", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Solution-oriented"],
+        next: "A role in automation, mechatronics or robotics. Also open to web and software development roles.",
+        contact: "I'm looking for a role in automation, mechatronics or robotics, and I'm also open to web and software development roles.",
+        status: "Open to roles in mechatronics, industry and software"
+      },
+      informatique: {
+        label: "Software",
+        role: "<mark>Developer</mark> · Web &amp; software",
+        pitch: [
+          "Web and software developer with a Professional Bachelor's in Electrical Engineering and Industrial Computing. I build applications end to end: database, back end, user interface and deployment.",
+          "Self-taught and thorough, I single-handedly built a school management SaaS platform that is live today, as well as the supervision software for a vision-guided robotic sorting arm."
+        ],
+        skills: [
+          ["Back end", "Python (Django), Node.js, EJS"],
+          ["Front end", "React, JavaScript, HTML, CSS"],
+          ["Databases", "PostgreSQL, SQLite, Access"],
+          ["Desktop apps", "Kivy MD graphical interfaces (Python)"],
+          ["Tools & deployment", "Git, Render, project management"],
+          ["Industrial computing", "PLC programming (GRAFCET, Ladder), supervision"],
+          ["Office tools", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Self-driven, self-taught", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Adaptability"],
+        next: "A developer role, or a 3-month software engineering internship.",
+        contact: "I'm looking for a developer role, or a 3-month software engineering internship.",
+        status: "Open to roles in software, mechatronics and industry"
+      },
+      industrie: {
+        label: "Industry",
+        role: "<mark>Industrial technician</mark> · Maintenance &amp; production",
+        pitch: [
+          "Versatile technician trained in Electrical Engineering and Industrial Computing, hands-on with production equipment: electrical and power, motors, pneumatics, PLCs and supervision.",
+          "Practical workshop experience diagnosing and repairing generators. I read and write technical documentation: schematics, AutoCAD and SolidWorks drawings, procedures."
+        ],
+        skills: [
+          ["Industrial maintenance", "Fault diagnosis, preventive and corrective maintenance, generator repair and return to service"],
+          ["Line automation", "PLC programming (GRAFCET, Ladder), pneumatic cylinders, sensors and actuators"],
+          ["Electrical equipment", "Control and power circuits, wiring, single-phase, stepper and servo motors"],
+          ["Quality control", "Robotic sorting station, computer vision, station supervision"],
+          ["Technical documentation", "Reading and drawing plans in AutoCAD and SolidWorks"],
+          ["Solar energy & security", "Solar PV installation (panels, inverters, batteries), CCTV"],
+          ["Digital tools", "HMI and supervision, tracking apps (Python, Node.js, PostgreSQL)"],
+          ["Office tools", "Word, PowerPoint, Excel, Access: reports and procedures"]
+        ],
+        soft: ["Adaptability", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Teamwork"],
+        next: "A maintenance or production technician role. Also open to web and software development roles.",
+        contact: "I'm looking for a maintenance or production technician role, and I'm also open to web and software development roles.",
+        status: "Open to roles in industry, mechatronics and software"
+      }
+    },
+    projects: {
+      erp: { kind: "Personal project · live", title: "Unitech-ERP, school management SaaS", text: "Web platform designed and built single-handedly, from database to deployment.", points: ["Student enrollment", "Billing", "Grade entry and tracking"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
+      robot: { kind: "Academic project", title: "Vision-guided robotic sorting arm", text: "Automated sorting station: a robotic arm sorts objects recognized by a camera.", points: ["Station supervision and control software", "Supervision website", "Automated sorting with computer vision"], tags: ["Robotics", "Vision", "Supervision", "Python"] },
+      eau: { kind: "Build", title: "Coin-operated automatic water dispenser", text: "Complete controlled dispensing system with payment handling.", points: ["Dispensing control logic", "Coin acceptor payment handling", "User interface"], tags: ["Automation", "Electronics", "HMI"] },
+      verin: { kind: "Academic project", title: "PLC control of a pneumatic cylinder and a single-phase motor", text: "Automating a cycle on a programmable logic controller.", points: ["Cycle programmed in GRAFCET and Ladder", "Control and power wiring", "Testing and commissioning"], tags: ["PLC", "GRAFCET", "Ladder", "Pneumatics"] },
+      moteur: { kind: "Academic project", title: "Stepper motor and servo motor control", text: "Position and speed control system for two motor types.", points: ["Control circuit", "Stepper and servo drive"], tags: ["Electronics", "Motor control", "Embedded"] }
+    }
   },
-  industrie: {
-    label: "Industrie",
-    role: "<mark>Technicien industriel</mark> · Maintenance &amp; production",
-    pitch: [
-      "Technicien polyvalent formé en Génie Électrique et Informatique Industrielle, opérationnel sur les équipements de production : électricité et puissance, motorisation, pneumatique, automates et supervision.",
-      "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures."
-    ],
-    order: ["verin", "robot", "eau", "moteur", "erp"],
-    skills: [
-      ["Maintenance industrielle", "Diagnostic de pannes, maintenance préventive et curative, réparation et remise en service des groupes électrogènes"],
-      ["Automatisation de ligne", "Programmation des API (Grafcet, Ladder), vérins pneumatiques, capteurs et actionneurs"],
-      ["Équipements électriques", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
-      ["Contrôle qualité", "Poste de tri robotisé, vision artificielle, supervision de poste"],
-      ["Documentation technique", "Lecture et réalisation de plans AutoCAD et SolidWorks"],
-      ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
-      ["Outils numériques", "IHM et supervision, applications de suivi (Python, Node.js, PostgreSQL)"],
-      ["Bureautique", "Word, PowerPoint, Excel, Access : rapports et procédures"]
-    ],
-    soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
-    next: "Un poste de technicien en maintenance ou en production industrielle. Également ouvert aux offres en développement web et logiciel.",
-    status: "Ouvert aux offres en industrie, mécatronique et informatique"
+
+  es: {
+    ui: {
+      title: "Laye Soma Doumbia · Portafolio",
+      modesAria: "Elegir el perfil",
+      plateAria: "Ficha técnica",
+      eyebrow: "Portafolio · Bamako, Malí",
+      ctaContact: "Contactarme",
+      ctaWork: "Ver mis proyectos",
+      plateTitle: "FICHA TÉCNICA",
+      plateRef: "Ref. GEII-MEC",
+      photoAlt: "Retrato de Laye Soma Doumbia de traje",
+      dtDegree: "Título", ddDegree: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica",
+      dtSchool: "Escuela", ddSchool: "Institut des Sciences Appliquées, 2022 – 2026",
+      dtBac: "Bachillerato", ddBac: "Ciencias Exactas, 2020 – 2021",
+      dtLangs: "Idiomas", ddLangs: "Francés, bambara, inglés (intermedio)",
+      dtOnline: "En línea", dtStatus: "Estado",
+      secProjects: "Proyectos",
+      projNote: (p) => "Ordenados para el perfil " + p,
+      secSkills: "Competencias",
+      skillsNote: "Las tres primeras: puntos fuertes del perfil",
+      secPath: "Trayectoria",
+      pathNote: "Dibujada como un GRAFCET: etapas, transiciones, acciones",
+      s0Title: "Bachillerato maliense, rama de Ciencias Exactas",
+      s0Sub: "Lycée Monseigneur Jean Marie Cissé, Kalaban Coura ACI · 2020 – 2021",
+      t0: "bachillerato obtenido",
+      s1Title: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica",
+      s1Sub: "Institut des Sciences Appliquées · 2022 – 2026",
+      s1Desc: "Automatización, electricidad de potencia, electrónica, informática industrial, CAD.",
+      t1: "+ formación complementaria",
+      s2Title: "Formación complementaria",
+      s2List: ["Informática · Exper-Lab", "Electrónica y sistemas embebidos · Orange Digital Center", "Inteligencia artificial aplicada al IoT · Orange Digital Center", "Robótica universitaria · MaliBots 2024 Challenge, DoniFab"],
+      t2: "práctica sobre el terreno",
+      s3Sub: "Energía solar, electricidad y seguridad",
+      s3List: ["Instalación fotovoltaica: paneles, cableado, inversores, baterías", "Videovigilancia: montaje, cableado, configuración de grabadores y acceso remoto", "Mantenimiento preventivo y correctivo de las instalaciones"],
+      s3Gen: "<strong style=\"color:var(--ink)\">Taller de grupos electrógenos</strong>: diagnóstico de averías mecánicas y eléctricas, mantenimiento, puesta en marcha.",
+      t3: "titulado en 2026 ✓",
+      s4Title: "Próxima etapa",
+      sideLangs: "Idiomas", langFr: "Francés", langEn: "Inglés", lvlGood: "muy bueno", lvlMid: "intermedio",
+      sideSoft: "Cualidades",
+      sideHobbies: "Fuera del trabajo",
+      hobbies: ["Deporte", "Música", "Lectura", "Viajes", "Nuevas tecnologías"],
+      contactLabel: "Contacto",
+      contactTitle: "Trabajemos juntos.",
+      copy: "Copiar", copied: "Copiado: ", selected: "Texto seleccionado, pulsa Ctrl+C",
+      address: "Kalaban Coura ACI, Bamako, Malí",
+      footer: "© 2026 Laye Soma Doumbia · Enlaces directos: añade #mecatronique, #informatique o #industrie a la dirección, y ?lang=es antes del #."
+    },
+    modes: {
+      mecatronique: {
+        label: "Mecatrónica",
+        role: "<mark>Mecatrónica</mark> · Automatización, electromecánica y robótica",
+        pitch: [
+          "Titulado en Ingeniería Eléctrica e Informática Industrial (opción mecatrónica), especializado en sistemas inteligentes, automatización, CAD (SolidWorks, AutoCAD) y robótica.",
+          "Domino toda la cadena de un sistema automatizado: parte eléctrica y de potencia, sensores y actuadores, programación de autómatas, supervisión e integración de software."
+        ],
+        skills: [
+          ["Automatización", "Programación de PLC, GRAFCET, Ladder, control de cilindros y motores"],
+          ["Robótica", "Control de brazo robótico, clasificación automática, visión artificial"],
+          ["Electricidad y electromecánica", "Circuitos de mando y de potencia, cableado, motores monofásicos, paso a paso y servomotores"],
+          ["IA e IoT", "Inteligencia artificial aplicada al IoT, electrónica y sistemas embebidos"],
+          ["CAD", "SolidWorks, AutoCAD"],
+          ["Energía solar y seguridad", "Instalación fotovoltaica (paneles, inversores, baterías), videovigilancia CCTV"],
+          ["Informática industrial", "Supervisión y HMI, interfaces Kivy MD (Python), web (Django, React, EJS)"],
+          ["Ofimática", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Adaptabilidad", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Orientado a soluciones"],
+        next: "Un puesto en automatización, mecatrónica o robótica. También abierto a ofertas de desarrollo web y software.",
+        contact: "Busco un puesto en automatización, mecatrónica o robótica, y también estoy abierto a ofertas de desarrollo web y software.",
+        status: "Abierto a ofertas en mecatrónica, industria e informática"
+      },
+      informatique: {
+        label: "Informática",
+        role: "<mark>Desarrollador</mark> · Web y software",
+        pitch: [
+          "Desarrollador web y de software con una Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial. Llevo una aplicación de principio a fin: base de datos, back-end, interfaz de usuario y puesta en producción.",
+          "Autodidacta y riguroso, diseñé solo una plataforma SaaS de gestión escolar que hoy está en línea, así como el software de supervisión de un brazo robótico de clasificación por visión artificial."
+        ],
+        skills: [
+          ["Back-end", "Python (Django), Node.js, EJS"],
+          ["Front-end", "React, JavaScript, HTML, CSS"],
+          ["Bases de datos", "PostgreSQL, SQLite, Access"],
+          ["Aplicaciones", "Interfaces gráficas Kivy MD (Python)"],
+          ["Herramientas y despliegue", "Git, Render, gestión de proyectos"],
+          ["Informática industrial", "Programación de PLC (GRAFCET, Ladder), supervisión"],
+          ["Ofimática", "Word, PowerPoint, Excel, Access"]
+        ],
+        soft: ["Autonomía y autodidactismo", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Adaptabilidad"],
+        next: "Un puesto de desarrollador, o unas prácticas de 3 meses en ingeniería de software.",
+        contact: "Busco un puesto de desarrollador, o unas prácticas de 3 meses en ingeniería de software.",
+        status: "Abierto a ofertas en informática, mecatrónica e industria"
+      },
+      industrie: {
+        label: "Industria",
+        role: "<mark>Técnico industrial</mark> · Mantenimiento y producción",
+        pitch: [
+          "Técnico polivalente formado en Ingeniería Eléctrica e Informática Industrial, operativo en equipos de producción: electricidad y potencia, motores, neumática, autómatas y supervisión.",
+          "Experiencia práctica en taller en el diagnóstico y la reparación de grupos electrógenos. Leo y redacto documentación técnica: esquemas, planos en AutoCAD y SolidWorks, procedimientos."
+        ],
+        skills: [
+          ["Mantenimiento industrial", "Diagnóstico de averías, mantenimiento preventivo y correctivo, reparación y puesta en marcha de grupos electrógenos"],
+          ["Automatización de línea", "Programación de PLC (GRAFCET, Ladder), cilindros neumáticos, sensores y actuadores"],
+          ["Equipos eléctricos", "Circuitos de mando y de potencia, cableado, motores monofásicos, paso a paso y servomotores"],
+          ["Control de calidad", "Puesto de clasificación robotizado, visión artificial, supervisión del puesto"],
+          ["Documentación técnica", "Lectura y elaboración de planos en AutoCAD y SolidWorks"],
+          ["Energía solar y seguridad", "Instalación fotovoltaica (paneles, inversores, baterías), videovigilancia CCTV"],
+          ["Herramientas digitales", "HMI y supervisión, aplicaciones de seguimiento (Python, Node.js, PostgreSQL)"],
+          ["Ofimática", "Word, PowerPoint, Excel, Access: informes y procedimientos"]
+        ],
+        soft: ["Adaptabilidad", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Trabajo en equipo"],
+        next: "Un puesto de técnico de mantenimiento o de producción industrial. También abierto a ofertas de desarrollo web y software.",
+        contact: "Busco un puesto de técnico de mantenimiento o de producción industrial, y también estoy abierto a ofertas de desarrollo web y software.",
+        status: "Abierto a ofertas en industria, mecatrónica e informática"
+      }
+    },
+    projects: {
+      erp: { kind: "Proyecto personal · en producción", title: "Unitech-ERP, plataforma SaaS de gestión escolar", text: "Plataforma web diseñada y desarrollada en solitario, de la base de datos a la puesta en línea.", points: ["Matrícula de alumnos", "Facturación", "Registro y seguimiento de notas"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
+      robot: { kind: "Proyecto académico", title: "Brazo robótico de clasificación por visión artificial", text: "Puesto de clasificación automática: un brazo robótico ordena los objetos reconocidos por una cámara.", points: ["Software de supervisión y control del puesto", "Sitio web de supervisión", "Clasificación automática por visión artificial"], tags: ["Robótica", "Visión", "Supervisión", "Python"] },
+      eau: { kind: "Realización", title: "Dispensador automático de agua con monedero", text: "Sistema completo de dispensación controlada, con cobro.", points: ["Lógica de control de la dispensación", "Gestión del cobro con monedero", "Interfaz de usuario"], tags: ["Automatización", "Electrónica", "HMI"] },
+      verin: { kind: "Proyecto académico", title: "Control de un cilindro neumático y un motor monofásico con PLC", text: "Automatización de un ciclo en un autómata programable.", points: ["Programación del ciclo en GRAFCET y Ladder", "Cableado de mando y de potencia", "Pruebas y puesta a punto"], tags: ["PLC", "GRAFCET", "Ladder", "Neumática"] },
+      moteur: { kind: "Proyecto académico", title: "Control de un motor paso a paso y un servomotor", text: "Sistema de control en posición y velocidad de dos tipos de motores.", points: ["Circuito de mando", "Accionamiento paso a paso y servomotor"], tags: ["Electrónica", "Motorización", "Embebido"] }
+    }
   }
 };
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const state = { lang: "fr", mode: "mecatronique" };
 
-function renderProjects(order) {
-  $("projects").innerHTML = order.map((key, i) => {
-    const p = PROJECTS[key];
-    const live = p.live
-      ? `<div class="live"><span class="dot"></span><a href="${p.live}" target="_blank" rel="noopener">${p.live.replace("https://", "").replace(/\/$/, "")}</a></div>`
+function pickLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (T[q]) return q;
+  try { const saved = localStorage.getItem("lang"); if (T[saved]) return saved; } catch (e) {}
+  const nav = (navigator.language || "fr").slice(0, 2).toLowerCase();
+  return T[nav] ? nav : "fr";
+}
+
+function renderProjects(t) {
+  $("projects").innerHTML = ORDER[state.mode].map((key, i) => {
+    const p = t.projects[key];
+    const url = LIVE[key];
+    const live = url
+      ? `<div class="live"><span class="dot"></span><a href="${url}" target="_blank" rel="noopener">${url.replace("https://", "").replace(/\/$/, "")}</a></div>`
       : "";
     return `<article class="proj swap${i === 0 ? " lead" : ""}">
       <div class="meta"><span class="label">${esc(p.kind)}</span></div>
@@ -496,47 +783,89 @@ function renderProjects(order) {
       <p>${esc(p.text)}</p>
       <ul>${p.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
       ${live}
-      <div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+      <div class="tags">${p.tags.map((tag) => `<span class="tag">${esc(tag)}</span>`).join("")}</div>
     </article>`;
   }).join("");
 }
 
-function setMode(mode, push) {
-  const m = MODES[mode] || MODES.mecatronique;
-  mode = MODES[mode] ? mode : "mecatronique";
-  document.querySelectorAll(".modes button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
+function render() {
+  const t = T[state.lang], ui = t.ui, m = t.modes[state.mode];
+  document.documentElement.lang = state.lang;
+  document.title = ui.title;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const v = ui[el.dataset.i18n];
+    if (Array.isArray(v)) {
+      el.innerHTML = el.tagName === "UL"
+        ? v.map((x) => `<li>${esc(x)}</li>`).join("")
+        : v.map((x) => `<span class="chip">${esc(x)}</span>`).join("");
+    } else if (typeof v === "string") {
+      el.innerHTML = v;
+    }
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => el.setAttribute("aria-label", ui[el.dataset.i18nAria]));
+  $("photo").alt = ui.photoAlt;
+
+  document.querySelectorAll(".langs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
+  document.querySelectorAll(".modes button").forEach((b) => {
+    b.textContent = t.modes[b.dataset.mode].label;
+    b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode));
+  });
+
   $("role").innerHTML = m.role;
   $("pitch").innerHTML = m.pitch.map((p) => `<p>${esc(p)}</p>`).join("");
-  $("skills").innerHTML = m.skills.map(([t, d]) => `<div class="skill"><i></i><div><b>${esc(t)}</b><span>${esc(d)}</span></div></div>`).join("");
+  $("skills").innerHTML = m.skills.map(([k, d]) => `<div class="skill"><i></i><div><b>${esc(k)}</b><span>${esc(d)}</span></div></div>`).join("");
   $("soft").innerHTML = m.soft.map((s) => `<span class="chip">${esc(s)}</span>`).join("");
   $("next-text").textContent = m.next;
   $("status").textContent = m.status;
-  $("contact-line").textContent = m.next.replace(/^Un /, "Je recherche un ");
-  $("proj-note").textContent = "Classées pour le profil " + m.label;
-  renderProjects(m.order);
+  $("contact-line").textContent = m.contact;
+  $("proj-note").textContent = ui.projNote(m.label);
+  renderProjects(t);
+  bindCopy();
+
   ["role", "pitch", "skills", "soft"].forEach((id) => { const el = $(id); el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); });
-  if (push) { try { history.replaceState(null, "", "#" + mode); } catch (e) {} }
 }
 
-document.querySelectorAll(".modes button").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode, true)));
+function syncUrl() {
+  try {
+    const url = new URL(location.href);
+    if (state.lang === "fr") url.searchParams.delete("lang"); else url.searchParams.set("lang", state.lang);
+    url.hash = state.mode;
+    history.replaceState(null, "", url);
+  } catch (e) {}
+}
+
+document.querySelectorAll(".modes button").forEach((b) => b.addEventListener("click", () => {
+  state.mode = b.dataset.mode; render(); syncUrl();
+}));
+document.querySelectorAll(".langs button").forEach((b) => b.addEventListener("click", () => {
+  state.lang = b.dataset.lang;
+  try { localStorage.setItem("lang", state.lang); } catch (e) {}
+  render(); syncUrl();
+}));
 
 let toastTimer;
 function toast(msg) {
-  const t = $("toast"); t.textContent = msg; t.hidden = false;
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 1800);
+  const el = $("toast"); el.textContent = msg; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 1800);
 }
-document.querySelectorAll(".copy").forEach((b) => b.addEventListener("click", () => {
-  const text = b.dataset.copy;
-  const done = () => toast("Copié : " + text);
-  const fallback = () => {
-    const r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Texte sélectionné, faites Ctrl+C");
-  };
-  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
-}));
+function bindCopy() {
+  document.querySelectorAll(".copy").forEach((b) => {
+    b.onclick = () => {
+      const ui = T[state.lang].ui, text = b.dataset.copy;
+      const fallback = () => {
+        const r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+        const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast(ui.selected);
+      };
+      try { navigator.clipboard.writeText(text).then(() => toast(ui.copied + text), fallback); } catch (e) { fallback(); }
+    };
+  });
+}
 
 const initial = (location.hash || "").slice(1);
-setMode(MODES[initial] ? initial : "mecatronique", false);
+state.mode = ORDER[initial] ? initial : "mecatronique";
+state.lang = pickLang();
+render();
 </script>
 </body>
 </html>

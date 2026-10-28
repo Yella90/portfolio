@@ -20,3 +20,7 @@ Un sélecteur en haut de la page adapte la présentation, les compétences et l'
 ## Contact
 
 doumbialayesoma@gmail.com · +223 90 69 23 63
+
+## Langues
+
+Boutons FR / EN / ES en haut de la page. La langue suit celle du navigateur, et peut être forcée dans le lien : `?lang=en` ou `?lang=es`, placé avant le `#` du profil (ex. `?lang=en#informatique`).
