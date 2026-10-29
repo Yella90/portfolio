@@ -351,15 +351,23 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         <li class="step">
           <div class="box">3</div>
           <div class="act">
+            <h3 data-i18n="sWTitle"></h3>
+            <p data-i18n="sWSub"></p>
+            <p data-i18n="sWDesc"></p>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tW"></div></li>
+        <li class="step">
+          <div class="box">4</div>
+          <div class="act">
             <h3>Sall Pro Global, Bamako</h3>
             <p data-i18n="s3Sub"></p>
             <ul data-i18n="s3List"></ul>
-            <p style="margin-top:10px" data-i18n="s3Gen"></p>
           </div>
         </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tU"></div></li>
         <li class="step">
-          <div class="box">4</div>
+          <div class="box">5</div>
           <div class="act">
             <h3 data-i18n="sUTitle"></h3>
             <p data-i18n="sUSub"></p>
@@ -368,7 +376,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t3"></div></li>
         <li class="step active">
-          <div class="box">5</div>
+          <div class="box">6</div>
           <div class="act">
             <h3 data-i18n="s4Title"></h3>
             <p id="next-text"></p>
@@ -471,14 +479,17 @@ const T = {
       t0: "bac obtenu",
       s1Title: "Licence Professionnelle GEII, option Mécatronique",
       s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
-      s1Desc: "Automatisme, électricité de puissance, électronique, informatique industrielle, DAO/CAO.",
+      s1Desc: "Automatisme, électricité de puissance, électronique, informatique industrielle, robotique, bases de DAO/CAO.",
       t1: "+ formations complémentaires",
       s2Title: "Formations complémentaires",
       s2List: ["Informatique · Exper-Lab", "Électronique et systèmes embarqués · Orange Digital Center", "Intelligence artificielle appliquée à l'IoT · Orange Digital Center", "Robotique universitaire · MaliBots 2024 Challenge, DoniFab"],
       t2: "mise en pratique sur le terrain",
+      sWTitle: "Atelier de groupes électrogènes",
+      sWSub: "Maintenance et réparation · Bamako",
+      sWDesc: "Diagnostic des pannes mécaniques et électriques, maintenance préventive et curative, remise en service.",
+      tW: "recruté chez Sall Pro Global",
       s3Sub: "Énergie solaire, électricité et sécurité",
       s3List: ["Installation de systèmes photovoltaïques : panneaux, câblage, onduleurs, batteries", "Vidéosurveillance : pose, câblage, paramétrage des enregistreurs et de l'accès à distance", "Maintenance préventive et curative des installations"],
-      s3Gen: "<strong style=\"color:var(--ink)\">Atelier de groupes électrogènes</strong> : diagnostic des pannes mécaniques et électriques, maintenance, remise en service.",
       tU: "création d'UNITECH",
       sUTitle: "Fondateur d'UNITECH",
       sUSub: "Startup de solutions technologiques, Bamako",
@@ -500,7 +511,7 @@ const T = {
         label: "Mécatronique",
         role: "<mark>Mécatronique</mark> · Automatisme, électromécanique &amp; robotique industrielle",
         pitch: [
-          "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation, DAO/CAO (SolidWorks, AutoCAD) et robotique industrielle.",
+          "Diplômé en Génie Électrique et Informatique Industrielle (option mécatronique), spécialisé en systèmes intelligents, automatisation et robotique industrielle.",
           "À l'aise sur toute la chaîne d'un système automatisé : partie électrique et puissance, capteurs et actionneurs, programmation d'automate, supervision et intégration logicielle.",
           "Fondateur d'UNITECH, startup de solutions technologiques (SaaS, IA, énergie) à Bamako."
         ],
@@ -509,12 +520,12 @@ const T = {
           ["Robotique industrielle", "Bases solides : bras manipulateur, cellule de tri automatisée, vision artificielle, intégration avec l'automate et les actionneurs"],
           ["Électricité & électromécanique", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
           ["IA, agents IA & IoT", "Développement d'agents IA, intelligence artificielle appliquée à l'IoT, électronique et systèmes embarqués"],
-          ["DAO / CAO", "SolidWorks, AutoCAD"],
+          ["DAO / CAO", "Niveau basique acquis en formation : SolidWorks, AutoCAD"],
           ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
           ["Informatique industrielle", "Supervision et IHM, interfaces Kivy MD (Python), web (Django, React, EJS)"],
           ["Bureautique", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
+        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
         next: "Un poste en automatisme, mécatronique ou robotique. Également ouvert aux offres en développement web, logiciel et agents IA.",
         contact: "Je recherche un poste en automatisme, mécatronique ou robotique, et je suis aussi ouvert aux offres en développement web, logiciel et agents IA.",
         status: "Ouvert aux offres en mécatronique, industrie et informatique"
@@ -533,11 +544,11 @@ const T = {
           ["Front-end", "React, JavaScript, HTML, CSS"],
           ["Bases de données", "PostgreSQL, SQLite, Access"],
           ["Applications", "Interfaces graphiques Kivy MD (Python)"],
-          ["Outils & déploiement", "Git, Render, gestion de projet"],
+          ["Outils & déploiement", "Git, Render, déploiement continu"],
           ["Informatique industrielle", "Programmation des API (Grafcet, Ladder), supervision"],
           ["Bureautique", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Autonomie et autodidaxie", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
+        soft: ["Autonomie et autodidaxie", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
         next: "Un poste de développeur (web, logiciel ou agents IA), ou un stage de 3 mois en génie logiciel.",
         contact: "Je recherche un poste de développeur (web, logiciel ou agents IA), ou un stage de 3 mois en génie logiciel.",
         status: "Ouvert aux offres en informatique, mécatronique et industrie"
@@ -547,7 +558,7 @@ const T = {
         role: "<mark>Technicien industriel</mark> · Maintenance &amp; production",
         pitch: [
           "Technicien polyvalent formé en Génie Électrique et Informatique Industrielle, opérationnel sur les équipements de production : électricité et puissance, motorisation, pneumatique, automates et supervision.",
-          "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis et je produis la documentation technique : schémas, plans AutoCAD et SolidWorks, procédures.",
+          "Expérience pratique en atelier sur le diagnostic et la réparation de groupes électrogènes. Je lis la documentation technique : schémas, plans et procédures.",
           "Fondateur d'UNITECH, startup de solutions technologiques (SaaS, IA, énergie) à Bamako."
         ],
         skills: [
@@ -555,12 +566,12 @@ const T = {
           ["Automatisation de ligne", "Programmation des API (Grafcet, Ladder), vérins pneumatiques, capteurs et actionneurs"],
           ["Équipements électriques", "Circuits de commande et de puissance, câblage, moteurs monophasés, pas à pas et servomoteurs"],
           ["Robotique industrielle", "Bases solides : poste de tri robotisé, vision artificielle, supervision et contrôle qualité du poste"],
-          ["Documentation technique", "Lecture et réalisation de plans AutoCAD et SolidWorks"],
+          ["Documentation technique", "Lecture de schémas et de plans ; bases d'AutoCAD et de SolidWorks acquises en formation"],
           ["Énergie solaire & sécurité", "Installation photovoltaïque (panneaux, onduleurs, batteries), vidéosurveillance CCTV"],
           ["Outils numériques & IA", "IHM et supervision, applications de suivi (Python, Node.js, PostgreSQL), agents IA pour automatiser des tâches"],
           ["Bureautique", "Word, PowerPoint, Excel, Access : rapports et procédures"]
         ],
-        soft: ["Capacité d'adaptation", "Gestion de projet", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
+        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
         next: "Un poste de technicien en maintenance ou en production industrielle. Également ouvert aux offres en développement web, logiciel et agents IA.",
         contact: "Je recherche un poste de technicien en maintenance ou en production industrielle, et je suis aussi ouvert aux offres en développement web, logiciel et agents IA.",
         status: "Ouvert aux offres en industrie, mécatronique et informatique"
@@ -609,14 +620,17 @@ const T = {
       t0: "diploma earned",
       s1Title: "Professional Bachelor's in Electrical Engineering and Industrial Computing, Mechatronics option",
       s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
-      s1Desc: "Automation, power electronics, electronics, industrial computing, CAD.",
+      s1Desc: "Automation, power electronics, electronics, industrial computing, robotics, CAD basics.",
       t1: "+ additional training",
       s2Title: "Additional training",
       s2List: ["Computer science · Exper-Lab", "Electronics and embedded systems · Orange Digital Center", "Artificial intelligence for IoT · Orange Digital Center", "University robotics · MaliBots 2024 Challenge, DoniFab"],
       t2: "hands-on field work",
+      sWTitle: "Generator repair workshop",
+      sWSub: "Maintenance and repair · Bamako",
+      sWDesc: "Diagnosis of mechanical and electrical faults, preventive and corrective maintenance, return to service.",
+      tW: "hired at Sall Pro Global",
       s3Sub: "Solar energy, electrical work and security",
       s3List: ["Solar PV installation: panels, wiring, inverters, batteries", "CCTV: mounting, wiring, recorder setup and remote access", "Preventive and corrective maintenance of installations"],
-      s3Gen: "<strong style=\"color:var(--ink)\">Generator repair workshop</strong>: diagnosis of mechanical and electrical faults, maintenance, return to service.",
       tU: "UNITECH founded",
       sUTitle: "Founder of UNITECH",
       sUSub: "Technology solutions startup, Bamako",
@@ -638,7 +652,7 @@ const T = {
         label: "Mechatronics",
         role: "<mark>Mechatronics</mark> · Automation, electromechanics &amp; industrial robotics",
         pitch: [
-          "Graduate in Electrical Engineering and Industrial Computing (mechatronics option), focused on intelligent systems, automation, CAD (SolidWorks, AutoCAD) and industrial robotics.",
+          "Graduate in Electrical Engineering and Industrial Computing (mechatronics option), focused on intelligent systems, automation and industrial robotics.",
           "Comfortable across the whole automated system: electrical and power circuits, sensors and actuators, PLC programming, supervision and software integration.",
           "Founder of UNITECH, a technology solutions startup (SaaS, AI, energy) in Bamako."
         ],
@@ -647,12 +661,12 @@ const T = {
           ["Industrial robotics", "Solid foundations: manipulator arm, automated sorting cell, computer vision, integration with the PLC and actuators"],
           ["Electrical & electromechanical", "Control and power circuits, wiring, single-phase, stepper and servo motors"],
           ["AI, AI agents & IoT", "Building AI agents, artificial intelligence for IoT, electronics and embedded systems"],
-          ["CAD", "SolidWorks, AutoCAD"],
+          ["CAD", "Basic level from coursework: SolidWorks, AutoCAD"],
           ["Solar energy & security", "Solar PV installation (panels, inverters, batteries), CCTV"],
           ["Industrial computing", "SCADA and HMI, Kivy MD interfaces (Python), web (Django, React, EJS)"],
           ["Office tools", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Adaptability", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Solution-oriented"],
+        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Solution-oriented"],
         next: "A role in automation, mechatronics or robotics. Also open to web, software and AI agent development roles.",
         contact: "I'm looking for a role in automation, mechatronics or robotics, and I'm also open to web, software and AI agent development roles.",
         status: "Open to roles in mechatronics, industry and software"
@@ -671,11 +685,11 @@ const T = {
           ["Front end", "React, JavaScript, HTML, CSS"],
           ["Databases", "PostgreSQL, SQLite, Access"],
           ["Desktop apps", "Kivy MD graphical interfaces (Python)"],
-          ["Tools & deployment", "Git, Render, project management"],
+          ["Tools & deployment", "Git, Render, continuous deployment"],
           ["Industrial computing", "PLC programming (GRAFCET, Ladder), supervision"],
           ["Office tools", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Self-driven, self-taught", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Adaptability"],
+        soft: ["Self-driven, self-taught", "Organization", "Thoroughness", "Analytical thinking", "Adaptability"],
         next: "A developer role (web, software or AI agents), or a 3-month software engineering internship.",
         contact: "I'm looking for a developer role (web, software or AI agents), or a 3-month software engineering internship.",
         status: "Open to roles in software, mechatronics and industry"
@@ -685,7 +699,7 @@ const T = {
         role: "<mark>Industrial technician</mark> · Maintenance &amp; production",
         pitch: [
           "Versatile technician trained in Electrical Engineering and Industrial Computing, hands-on with production equipment: electrical and power, motors, pneumatics, PLCs and supervision.",
-          "Practical workshop experience diagnosing and repairing generators. I read and write technical documentation: schematics, AutoCAD and SolidWorks drawings, procedures.",
+          "Practical workshop experience diagnosing and repairing generators. I read technical documentation: schematics, drawings and procedures.",
           "Founder of UNITECH, a technology solutions startup (SaaS, AI, energy) in Bamako."
         ],
         skills: [
@@ -693,12 +707,12 @@ const T = {
           ["Line automation", "PLC programming (GRAFCET, Ladder), pneumatic cylinders, sensors and actuators"],
           ["Electrical equipment", "Control and power circuits, wiring, single-phase, stepper and servo motors"],
           ["Industrial robotics", "Solid foundations: robotic sorting station, computer vision, station supervision and quality control"],
-          ["Technical documentation", "Reading and drawing plans in AutoCAD and SolidWorks"],
+          ["Technical documentation", "Reading schematics and drawings; AutoCAD and SolidWorks basics from coursework"],
           ["Solar energy & security", "Solar PV installation (panels, inverters, batteries), CCTV"],
           ["Digital tools & AI", "HMI and supervision, tracking apps (Python, Node.js, PostgreSQL), AI agents for task automation"],
           ["Office tools", "Word, PowerPoint, Excel, Access: reports and procedures"]
         ],
-        soft: ["Adaptability", "Project management", "Organization", "Thoroughness", "Analytical thinking", "Teamwork"],
+        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Teamwork"],
         next: "A maintenance or production technician role. Also open to web, software and AI agent development roles.",
         contact: "I'm looking for a maintenance or production technician role, and I'm also open to web, software and AI agent development roles.",
         status: "Open to roles in industry, mechatronics and software"
@@ -747,14 +761,17 @@ const T = {
       t0: "bachillerato obtenido",
       s1Title: "Licenciatura Profesional en Ingeniería Eléctrica e Informática Industrial, opción Mecatrónica",
       s1Sub: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
-      s1Desc: "Automatización, electricidad de potencia, electrónica, informática industrial, CAD.",
+      s1Desc: "Automatización, electricidad de potencia, electrónica, informática industrial, robótica, bases de CAD.",
       t1: "+ formación complementaria",
       s2Title: "Formación complementaria",
       s2List: ["Informática · Exper-Lab", "Electrónica y sistemas embebidos · Orange Digital Center", "Inteligencia artificial aplicada al IoT · Orange Digital Center", "Robótica universitaria · MaliBots 2024 Challenge, DoniFab"],
       t2: "práctica sobre el terreno",
+      sWTitle: "Taller de grupos electrógenos",
+      sWSub: "Mantenimiento y reparación · Bamako",
+      sWDesc: "Diagnóstico de averías mecánicas y eléctricas, mantenimiento preventivo y correctivo, puesta en servicio.",
+      tW: "contratado en Sall Pro Global",
       s3Sub: "Energía solar, electricidad y seguridad",
       s3List: ["Instalación fotovoltaica: paneles, cableado, inversores, baterías", "Videovigilancia: montaje, cableado, configuración de grabadores y acceso remoto", "Mantenimiento preventivo y correctivo de las instalaciones"],
-      s3Gen: "<strong style=\"color:var(--ink)\">Taller de grupos electrógenos</strong>: diagnóstico de averías mecánicas y eléctricas, mantenimiento, puesta en marcha.",
       tU: "creación de UNITECH",
       sUTitle: "Fundador de UNITECH",
       sUSub: "Startup de soluciones tecnológicas, Bamako",
@@ -776,7 +793,7 @@ const T = {
         label: "Mecatrónica",
         role: "<mark>Mecatrónica</mark> · Automatización, electromecánica y robótica industrial",
         pitch: [
-          "Titulado en Ingeniería Eléctrica e Informática Industrial (opción mecatrónica), especializado en sistemas inteligentes, automatización, CAD (SolidWorks, AutoCAD) y robótica industrial.",
+          "Titulado en Ingeniería Eléctrica e Informática Industrial (opción mecatrónica), especializado en sistemas inteligentes, automatización y robótica industrial.",
           "Domino toda la cadena de un sistema automatizado: parte eléctrica y de potencia, sensores y actuadores, programación de autómatas, supervisión e integración de software.",
           "Fundador de UNITECH, startup de soluciones tecnológicas (SaaS, IA, energía) en Bamako."
         ],
@@ -785,12 +802,12 @@ const T = {
           ["Robótica industrial", "Bases sólidas: brazo manipulador, célula de clasificación automatizada, visión artificial, integración con el autómata y los actuadores"],
           ["Electricidad y electromecánica", "Circuitos de mando y de potencia, cableado, motores monofásicos, paso a paso y servomotores"],
           ["IA, agentes de IA e IoT", "Desarrollo de agentes de IA, inteligencia artificial aplicada al IoT, electrónica y sistemas embebidos"],
-          ["CAD", "SolidWorks, AutoCAD"],
+          ["CAD", "Nivel básico adquirido en la formación: SolidWorks, AutoCAD"],
           ["Energía solar y seguridad", "Instalación fotovoltaica (paneles, inversores, baterías), videovigilancia CCTV"],
           ["Informática industrial", "Supervisión y HMI, interfaces Kivy MD (Python), web (Django, React, EJS)"],
           ["Ofimática", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Adaptabilidad", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Orientado a soluciones"],
+        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Orientado a soluciones"],
         next: "Un puesto en automatización, mecatrónica o robótica. También abierto a ofertas de desarrollo web, software y agentes de IA.",
         contact: "Busco un puesto en automatización, mecatrónica o robótica, y también estoy abierto a ofertas de desarrollo web, software y agentes de IA.",
         status: "Abierto a ofertas en mecatrónica, industria e informática"
@@ -809,11 +826,11 @@ const T = {
           ["Front-end", "React, JavaScript, HTML, CSS"],
           ["Bases de datos", "PostgreSQL, SQLite, Access"],
           ["Aplicaciones", "Interfaces gráficas Kivy MD (Python)"],
-          ["Herramientas y despliegue", "Git, Render, gestión de proyectos"],
+          ["Herramientas y despliegue", "Git, Render, despliegue continuo"],
           ["Informática industrial", "Programación de PLC (GRAFCET, Ladder), supervisión"],
           ["Ofimática", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Autonomía y autodidactismo", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Adaptabilidad"],
+        soft: ["Autonomía y autodidactismo", "Organización", "Rigor", "Espíritu analítico", "Adaptabilidad"],
         next: "Un puesto de desarrollador (web, software o agentes de IA), o unas prácticas de 3 meses en ingeniería de software.",
         contact: "Busco un puesto de desarrollador (web, software o agentes de IA), o unas prácticas de 3 meses en ingeniería de software.",
         status: "Abierto a ofertas en informática, mecatrónica e industria"
@@ -823,7 +840,7 @@ const T = {
         role: "<mark>Técnico industrial</mark> · Mantenimiento y producción",
         pitch: [
           "Técnico polivalente formado en Ingeniería Eléctrica e Informática Industrial, operativo en equipos de producción: electricidad y potencia, motores, neumática, autómatas y supervisión.",
-          "Experiencia práctica en taller en el diagnóstico y la reparación de grupos electrógenos. Leo y redacto documentación técnica: esquemas, planos en AutoCAD y SolidWorks, procedimientos.",
+          "Experiencia práctica en taller en el diagnóstico y la reparación de grupos electrógenos. Leo documentación técnica: esquemas, planos y procedimientos.",
           "Fundador de UNITECH, startup de soluciones tecnológicas (SaaS, IA, energía) en Bamako."
         ],
         skills: [
@@ -831,12 +848,12 @@ const T = {
           ["Automatización de línea", "Programación de PLC (GRAFCET, Ladder), cilindros neumáticos, sensores y actuadores"],
           ["Equipos eléctricos", "Circuitos de mando y de potencia, cableado, motores monofásicos, paso a paso y servomotores"],
           ["Robótica industrial", "Bases sólidas: puesto de clasificación robotizado, visión artificial, supervisión y control de calidad del puesto"],
-          ["Documentación técnica", "Lectura y elaboración de planos en AutoCAD y SolidWorks"],
+          ["Documentación técnica", "Lectura de esquemas y planos; bases de AutoCAD y SolidWorks adquiridas en la formación"],
           ["Energía solar y seguridad", "Instalación fotovoltaica (paneles, inversores, baterías), videovigilancia CCTV"],
           ["Herramientas digitales e IA", "HMI y supervisión, aplicaciones de seguimiento (Python, Node.js, PostgreSQL), agentes de IA para automatizar tareas"],
           ["Ofimática", "Word, PowerPoint, Excel, Access: informes y procedimientos"]
         ],
-        soft: ["Adaptabilidad", "Gestión de proyectos", "Organización", "Rigor", "Espíritu analítico", "Trabajo en equipo"],
+        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Trabajo en equipo"],
         next: "Un puesto de técnico de mantenimiento o de producción industrial. También abierto a ofertas de desarrollo web, software y agentes de IA.",
         contact: "Busco un puesto de técnico de mantenimiento o de producción industrial, y también estoy abierto a ofertas de desarrollo web, software y agentes de IA.",
         status: "Abierto a ofertas en industria, mecatrónica e informática"
