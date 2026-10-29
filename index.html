@@ -347,9 +347,18 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
             <ul data-i18n="s2List"></ul>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t2"></div></li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tD"></div></li>
         <li class="step">
           <div class="box">3</div>
+          <div class="act">
+            <h3 data-i18n="sDTitle"></h3>
+            <p data-i18n="sDSub"></p>
+            <p data-i18n="sDDesc"></p>
+          </div>
+        </li>
+        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t2"></div></li>
+        <li class="step">
+          <div class="box">4</div>
           <div class="act">
             <h3 data-i18n="sWTitle"></h3>
             <p data-i18n="sWSub"></p>
@@ -358,7 +367,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tW"></div></li>
         <li class="step">
-          <div class="box">4</div>
+          <div class="box">5</div>
           <div class="act">
             <h3>Sall Pro Global, Bamako</h3>
             <p data-i18n="s3Sub"></p>
@@ -367,7 +376,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="tU"></div></li>
         <li class="step">
-          <div class="box">5</div>
+          <div class="box">6</div>
           <div class="act">
             <h3 data-i18n="sUTitle"></h3>
             <p data-i18n="sUSub"></p>
@@ -376,7 +385,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         </li>
         <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t3"></div></li>
         <li class="step active">
-          <div class="box">6</div>
+          <div class="box">7</div>
           <div class="act">
             <h3 data-i18n="s4Title"></h3>
             <p id="next-text"></p>
@@ -484,6 +493,10 @@ const T = {
       s2Title: "Formations complémentaires",
       s2List: ["Informatique · Exper-Lab", "Électronique et systèmes embarqués · Orange Digital Center", "Intelligence artificielle appliquée à l'IoT · Orange Digital Center", "Robotique universitaire · MaliBots 2024 Challenge, DoniFab"],
       t2: "mise en pratique sur le terrain",
+      sDTitle: "Stage de fin d'études · DoniLab",
+      sDSub: "3 mois · Bamako",
+      sDDesc: "Bras robotisé de tri d'objets par vision artificielle&nbsp;: conception du poste, logiciel de supervision et de commande. Projet soutenu en 2026.",
+      tD: "projet de fin d'études",
       sWTitle: "Atelier de groupes électrogènes",
       sWSub: "Maintenance et réparation · Bamako",
       sWDesc: "Diagnostic des pannes mécaniques et électriques, maintenance préventive et curative, remise en service.",
@@ -582,7 +595,7 @@ const T = {
       liveshop: { kind: "UNITECH · en ligne", title: "LiveShop, SaaS de vente en live", text: "Plateforme pour les vendeurs d'Afrique francophone qui vendent en live sur TikTok, Facebook ou Instagram.", points: ["Gestion des commandes passées pendant le live", "Suivi du stock et des livraisons", "Le vendeur garde son audience sur les réseaux sociaux"], tags: ["SaaS", "E-commerce", "Vente en live"] },
       domotique: { kind: "UNITECH · en cours", title: "Système de domotique énergétique", text: "Suivi et gestion de la consommation d'énergie d'installations solaires, avec IA et facturation automatique.", points: ["Suivi de la consommation", "Facturation automatique", "Optimisation par IA", "Test terrain prévu en octobre 2027"], tags: ["Énergie solaire", "IoT", "IA", "Domotique"] },
       erp: { kind: "Projet personnel · en production", title: "Unitech-ERP, plateforme SaaS de gestion scolaire", text: "Plateforme web conçue et développée seul, de la base de données à la mise en ligne.", points: ["Inscriptions des élèves", "Facturation", "Saisie et suivi des notes"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
-      robot: { kind: "Projet académique", title: "Bras robotisé de tri par vision artificielle", text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra.", points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"], tags: ["Robotique", "Vision", "Supervision", "Python"] },
+      robot: { kind: "Projet de fin d'études · Stage de 3 mois chez DoniLab", title: "Bras robotisé de tri par vision artificielle", text: "Poste de tri automatique : un bras robotisé classe les objets reconnus par une caméra. Projet de fin d'études réalisé chez DoniLab et soutenu en 2026.", points: ["Logiciel de supervision et de commande du poste", "Site web de supervision", "Tri automatique par vision artificielle"], tags: ["Robotique", "Vision", "Supervision", "Python"] },
       eau: { kind: "Réalisation", title: "Distributeur d'eau automatique avec monnayeur", text: "Système complet de distribution commandée, avec encaissement.", points: ["Logique de commande de la distribution", "Gestion des encaissements par monnayeur", "Interface utilisateur"], tags: ["Automatisme", "Électronique", "IHM"] },
       verin: { kind: "Projet académique", title: "Commande d'un vérin pneumatique et d'un moteur monophasé par API", text: "Automatisation d'un cycle sur automate programmable.", points: ["Programmation du cycle en Grafcet et Ladder", "Câblage commande et puissance", "Essais et mise au point"], tags: ["API", "Grafcet", "Ladder", "Pneumatique"] },
       moteur: { kind: "Projet académique", title: "Contrôle d'un moteur pas à pas et d'un servomoteur", text: "Système de commande en position et en vitesse de deux types de moteurs.", points: ["Circuit de commande", "Pilotage pas à pas et servomoteur"], tags: ["Électronique", "Motorisation", "Embarqué"] }
@@ -625,6 +638,10 @@ const T = {
       s2Title: "Additional training",
       s2List: ["Computer science · Exper-Lab", "Electronics and embedded systems · Orange Digital Center", "Artificial intelligence for IoT · Orange Digital Center", "University robotics · MaliBots 2024 Challenge, DoniFab"],
       t2: "hands-on field work",
+      sDTitle: "Final-year internship · DoniLab",
+      sDSub: "3 months · Bamako",
+      sDDesc: "Vision-guided robotic sorting arm: station design, supervision and control software. Defended in 2026.",
+      tD: "final-year project",
       sWTitle: "Generator repair workshop",
       sWSub: "Maintenance and repair · Bamako",
       sWDesc: "Diagnosis of mechanical and electrical faults, preventive and corrective maintenance, return to service.",
@@ -723,7 +740,7 @@ const T = {
       liveshop: { kind: "UNITECH · live", title: "LiveShop, live selling SaaS", text: "Platform for French-speaking African sellers who sell live on TikTok, Facebook or Instagram.", points: ["Managing orders placed during the live", "Stock and delivery tracking", "Sellers keep their audience on social media"], tags: ["SaaS", "E-commerce", "Live selling"] },
       domotique: { kind: "UNITECH · in progress", title: "Smart energy home automation system", text: "Monitoring and managing energy use of solar installations, with AI and automatic billing.", points: ["Consumption monitoring", "Automatic billing", "AI-based optimization", "Field test planned for October 2027"], tags: ["Solar energy", "IoT", "AI", "Home automation"] },
       erp: { kind: "Personal project · live", title: "Unitech-ERP, school management SaaS", text: "Web platform designed and built single-handedly, from database to deployment.", points: ["Student enrollment", "Billing", "Grade entry and tracking"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
-      robot: { kind: "Academic project", title: "Vision-guided robotic sorting arm", text: "Automated sorting station: a robotic arm sorts objects recognized by a camera.", points: ["Station supervision and control software", "Supervision website", "Automated sorting with computer vision"], tags: ["Robotics", "Vision", "Supervision", "Python"] },
+      robot: { kind: "Final-year project · 3-month internship at DoniLab", title: "Vision-guided robotic sorting arm", text: "Automated sorting station: a robotic arm sorts objects recognized by a camera. Final-year project carried out at DoniLab and defended in 2026.", points: ["Station supervision and control software", "Supervision website", "Automated sorting with computer vision"], tags: ["Robotics", "Vision", "Supervision", "Python"] },
       eau: { kind: "Build", title: "Coin-operated automatic water dispenser", text: "Complete controlled dispensing system with payment handling.", points: ["Dispensing control logic", "Coin acceptor payment handling", "User interface"], tags: ["Automation", "Electronics", "HMI"] },
       verin: { kind: "Academic project", title: "PLC control of a pneumatic cylinder and a single-phase motor", text: "Automating a cycle on a programmable logic controller.", points: ["Cycle programmed in GRAFCET and Ladder", "Control and power wiring", "Testing and commissioning"], tags: ["PLC", "GRAFCET", "Ladder", "Pneumatics"] },
       moteur: { kind: "Academic project", title: "Stepper motor and servo motor control", text: "Position and speed control system for two motor types.", points: ["Control circuit", "Stepper and servo drive"], tags: ["Electronics", "Motor control", "Embedded"] }
@@ -766,6 +783,10 @@ const T = {
       s2Title: "Formación complementaria",
       s2List: ["Informática · Exper-Lab", "Electrónica y sistemas embebidos · Orange Digital Center", "Inteligencia artificial aplicada al IoT · Orange Digital Center", "Robótica universitaria · MaliBots 2024 Challenge, DoniFab"],
       t2: "práctica sobre el terreno",
+      sDTitle: "Prácticas de fin de carrera · DoniLab",
+      sDSub: "3 meses · Bamako",
+      sDDesc: "Brazo robótico de clasificación por visión artificial: diseño del puesto, software de supervisión y control. Defendido en 2026.",
+      tD: "proyecto de fin de carrera",
       sWTitle: "Taller de grupos electrógenos",
       sWSub: "Mantenimiento y reparación · Bamako",
       sWDesc: "Diagnóstico de averías mecánicas y eléctricas, mantenimiento preventivo y correctivo, puesta en servicio.",
@@ -864,7 +885,7 @@ const T = {
       liveshop: { kind: "UNITECH · en línea", title: "LiveShop, SaaS de venta en directo", text: "Plataforma para vendedores de África francófona que venden en directo en TikTok, Facebook o Instagram.", points: ["Gestión de los pedidos hechos durante el directo", "Seguimiento del stock y de las entregas", "El vendedor conserva su audiencia en las redes sociales"], tags: ["SaaS", "E-commerce", "Venta en directo"] },
       domotique: { kind: "UNITECH · en curso", title: "Sistema de domótica energética", text: "Seguimiento y gestión del consumo energético de instalaciones solares, con IA y facturación automática.", points: ["Seguimiento del consumo", "Facturación automática", "Optimización con IA", "Prueba de campo prevista en octubre de 2027"], tags: ["Energía solar", "IoT", "IA", "Domótica"] },
       erp: { kind: "Proyecto personal · en producción", title: "Unitech-ERP, plataforma SaaS de gestión escolar", text: "Plataforma web diseñada y desarrollada en solitario, de la base de datos a la puesta en línea.", points: ["Matrícula de alumnos", "Facturación", "Registro y seguimiento de notas"], tags: ["Node.js", "EJS", "PostgreSQL", "Render"] },
-      robot: { kind: "Proyecto académico", title: "Brazo robótico de clasificación por visión artificial", text: "Puesto de clasificación automática: un brazo robótico ordena los objetos reconocidos por una cámara.", points: ["Software de supervisión y control del puesto", "Sitio web de supervisión", "Clasificación automática por visión artificial"], tags: ["Robótica", "Visión", "Supervisión", "Python"] },
+      robot: { kind: "Proyecto de fin de carrera · Prácticas de 3 meses en DoniLab", title: "Brazo robótico de clasificación por visión artificial", text: "Puesto de clasificación automática: un brazo robótico ordena los objetos reconocidos por una cámara. Proyecto de fin de carrera realizado en DoniLab y defendido en 2026.", points: ["Software de supervisión y control del puesto", "Sitio web de supervisión", "Clasificación automática por visión artificial"], tags: ["Robótica", "Visión", "Supervisión", "Python"] },
       eau: { kind: "Realización", title: "Dispensador automático de agua con monedero", text: "Sistema completo de dispensación controlada, con cobro.", points: ["Lógica de control de la dispensación", "Gestión del cobro con monedero", "Interfaz de usuario"], tags: ["Automatización", "Electrónica", "HMI"] },
       verin: { kind: "Proyecto académico", title: "Control de un cilindro neumático y un motor monofásico con PLC", text: "Automatización de un ciclo en un autómata programable.", points: ["Programación del ciclo en GRAFCET y Ladder", "Cableado de mando y de potencia", "Pruebas y puesta a punto"], tags: ["PLC", "GRAFCET", "Ladder", "Neumática"] },
       moteur: { kind: "Proyecto académico", title: "Control de un motor paso a paso y un servomotor", text: "Sistema de control en posición y velocidad de dos tipos de motores.", points: ["Circuito de mando", "Accionamiento paso a paso y servomotor"], tags: ["Electrónica", "Motorización", "Embebido"] }
