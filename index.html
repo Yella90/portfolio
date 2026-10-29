@@ -8,6 +8,11 @@
 <link rel="alternate" hreflang="en" href="https://yella90.github.io/portfolio/?lang=en">
 <link rel="alternate" hreflang="es" href="https://yella90.github.io/portfolio/?lang=es">
 <title>Laye Soma Doumbia</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#EDF0F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E151C" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -195,6 +200,29 @@ section { padding-block: 44px; border-top: 1px solid var(--line); }
 .contact .lines div { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; overflow-wrap: anywhere; }
 footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
 .toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; font: 500 13px/1 var(--mono); }
+
+/* Bouton flottant : consulter ou télécharger le CV du profil affiché */
+.fab {
+  position: fixed; z-index: 6;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; border: 1px solid var(--ink); background: var(--surface);
+  box-shadow: 4px 4px 0 var(--line);
+}
+.fab a {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  font: 500 13px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; padding: 13px 15px;
+}
+.fab a + a { border-left: 1px solid var(--ink); }
+.fab .dl { background: var(--signal); color: var(--signal-ink); }
+.fab a:hover { background: var(--ink); color: var(--bg); }
+.fab svg { width: 16px; height: 16px; flex: none; }
+@media (max-width: 560px) {
+  .fab .view span { border: 0; clip-path: inset(50%); height: 1px; width: 1px; overflow: hidden; position: absolute; white-space: nowrap; }
+  .toast { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+}
+@media print { .fab { display: none; } }
 
 @media (max-width: 820px) {
   .hero, .grafcet-wrap, .contact { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -390,6 +418,19 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
 </footer>
 <div class="toast" id="toast" hidden></div>
 
+<div class="fab" id="fab">
+  <a class="view" id="cv-view" href="cv.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+      <path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3"/>
+    </svg><span data-i18n="cvView">Voir</span>
+  </a>
+  <a class="dl" id="cv-dl" href="cv/cv-laye-soma-doumbia-mecatronique.pdf" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+      <path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16"/>
+    </svg><span data-i18n="cvDownload">CV</span>
+  </a>
+</div>
+
 <script>
 const ORDER = {
   mecatronique: ["robot", "domotique", "verin", "moteur", "eau", "harvey", "erp", "liveshop"],
@@ -407,6 +448,10 @@ const T = {
       eyebrow: "Portfolio · Bamako, Mali",
       ctaContact: "Me contacter",
       ctaWork: "Voir les réalisations",
+      ctaCv: "Télécharger le CV",
+      cvView: "Voir", cvDownload: "CV",
+      cvViewTitle: "Consulter le CV en ligne",
+      cvDownloadTitle: (p) => "Télécharger le CV " + p + " (PDF)",
       plateTitle: "FICHE TECHNIQUE",
       plateRef: "Réf. GEII-MEC",
       photoAlt: "Portrait de Laye Soma Doumbia en costume",
@@ -541,6 +586,10 @@ const T = {
       eyebrow: "Portfolio · Bamako, Mali",
       ctaContact: "Contact me",
       ctaWork: "See my work",
+      ctaCv: "Download CV",
+      cvView: "View", cvDownload: "CV",
+      cvViewTitle: "View the CV online",
+      cvDownloadTitle: (p) => "Download the " + p + " CV (PDF)",
       plateTitle: "SPEC SHEET",
       plateRef: "Ref. GEII-MEC",
       photoAlt: "Portrait of Laye Soma Doumbia in a suit",
@@ -675,6 +724,10 @@ const T = {
       eyebrow: "Portafolio · Bamako, Malí",
       ctaContact: "Contactarme",
       ctaWork: "Ver mis proyectos",
+      ctaCv: "Descargar el CV",
+      cvView: "Ver", cvDownload: "CV",
+      cvViewTitle: "Consultar el CV en línea",
+      cvDownloadTitle: (p) => "Descargar el CV de " + p + " (PDF)",
       plateTitle: "FICHA TÉCNICA",
       plateRef: "Ref. GEII-MEC",
       photoAlt: "Retrato de Laye Soma Doumbia de traje",
@@ -864,6 +917,16 @@ function render() {
   $("status").textContent = m.status;
   $("contact-line").textContent = m.contact;
   $("proj-note").textContent = ui.projNote(m.label);
+
+  const dl = $("cv-dl"), view = $("cv-view");
+  dl.href = "cv/cv-laye-soma-doumbia-" + state.mode + ".pdf";
+  dl.setAttribute("download", "CV - Laye Soma DOUMBIA - " + m.label + ".pdf");
+  dl.setAttribute("aria-label", ui.cvDownloadTitle(m.label));
+  dl.title = ui.cvDownloadTitle(m.label);
+  view.href = "cv.html?mode=" + state.mode + (state.lang === "fr" ? "" : "&lang=" + state.lang);
+  view.setAttribute("aria-label", ui.cvViewTitle);
+  view.title = ui.cvViewTitle;
+
   renderProjects(t);
   bindCopy();
 

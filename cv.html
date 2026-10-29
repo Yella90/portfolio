@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Curriculum vitæ de Laye Soma Doumbia : mécatronique, informatique et industrie. Consultation en ligne et téléchargement en PDF.">
+<title>CV · Laye Soma Doumbia</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#EDF0F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E151C" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+:root {
+  --bg: #EDF0F3; --surface: #FFFFFF; --ink: #121C26; --muted: #55626E; --line: #C6CFD8;
+  --signal: #F2B705; --signal-ink: #121C26; --link: #1C5DA3;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151C; --surface: #16202A; --ink: #E4E9EE; --muted: #93A1AE;
+    --line: #2B3845; --signal: #F2B705; --signal-ink: #0E151C; --link: #86B8EC;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--body);
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px; background-attachment: fixed;
+}
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg); opacity: .86; }
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--link); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+.label { font: 500 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 10px; }
+.mark { font: 800 15px/1 var(--display); font-stretch: 112%; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.mark i { width: 12px; height: 12px; background: var(--signal); display: inline-block; }
+.langs { display: flex; border: 1px solid var(--ink); }
+.langs button {
+  font: 500 13px/1 var(--mono); letter-spacing: .04em;
+  background: transparent; color: var(--ink); border: 0; padding: 10px 13px; cursor: pointer;
+}
+.langs button + button { border-left: 1px solid var(--ink); }
+.langs button:hover { background: var(--surface); }
+.langs button[aria-pressed="true"] { background: var(--signal); color: var(--signal-ink); }
+
+.head { padding-block: 44px 10px; }
+.head h1 { font-weight: 800; font-stretch: 118%; line-height: 1; font-size: clamp(34px, 6vw, 62px); margin-top: 10px; }
+.head p { color: var(--muted); max-width: 62ch; margin: 16px 0 0; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; padding-block: 26px 6px; }
+.seg { display: flex; border: 1px solid var(--ink); }
+.seg button {
+  font: 500 13px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase;
+  background: transparent; color: var(--ink); border: 0; padding: 11px 14px; cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--ink); }
+.seg button:hover { background: var(--surface); }
+.seg button[aria-pressed="true"] { background: var(--signal); color: var(--signal-ink); }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 18px 4px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; font: 500 14px/1 var(--body);
+  padding: 12px 16px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; background: var(--surface); cursor: pointer;
+}
+.btn.primary { background: var(--signal); color: var(--signal-ink); }
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+.viewer {
+  margin-block: 24px 56px; border: 2px solid var(--ink); background: var(--surface);
+  box-shadow: 8px 8px 0 var(--line);
+}
+.viewer object { display: block; width: 100%; height: min(135vw, 1180px); border: 0; }
+.viewer img { display: block; width: 100%; height: auto; }
+.note { color: var(--muted); font-size: 14px; margin-top: -40px; padding-bottom: 44px; }
+
+footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+@media (max-width: 560px) {
+  .controls { gap: 10px; }
+  .seg button { padding: 10px 11px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" id="back" href="index.html"><i></i>L.S. DOUMBIA</a>
+    <nav class="langs" id="langs" aria-label="Langue / Language / Idioma">
+      <button type="button" data-lang="fr" lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="es" lang="es" aria-pressed="false">ES</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="head">
+    <p class="label" id="eyebrow">Curriculum vitæ</p>
+    <h1 id="title">Curriculum vitæ</h1>
+    <p id="intro"></p>
+  </div>
+
+  <div class="controls">
+    <nav class="seg" id="modes" aria-label="Profil">
+      <button type="button" data-mode="mecatronique" aria-pressed="true">Mécatronique</button>
+      <button type="button" data-mode="informatique" aria-pressed="false">Informatique</button>
+      <button type="button" data-mode="industrie" aria-pressed="false">Industrie</button>
+    </nav>
+    <nav class="seg" id="variants" aria-label="Version">
+      <button type="button" data-variant="poste" aria-pressed="true">Poste</button>
+      <button type="button" data-variant="stage" aria-pressed="false">Stage</button>
+    </nav>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" id="dl" href="#" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 19.5h16"/></svg>
+      <span id="dl-label">Télécharger le PDF</span>
+    </a>
+    <a class="btn" id="open" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M19 14v6H4V5h6"/></svg>
+      <span id="open-label">Ouvrir dans un nouvel onglet</span>
+    </a>
+  </div>
+
+  <div class="viewer" id="viewer"></div>
+  <p class="note" id="note"></p>
+</main>
+
+<footer>
+  <div class="wrap" id="footer"></div>
+</footer>
+
+<script>
+const T = {
+  fr: {
+    htmlTitle: "CV · Laye Soma Doumbia",
+    eyebrow: "Curriculum vitæ",
+    title: "Curriculum vitæ",
+    intro: "Trois versions du CV, une par profil. Choisissez le domaine, puis la version adaptée à votre besoin : candidature à un poste ou demande de stage.",
+    modes: { mecatronique: "Mécatronique", informatique: "Informatique", industrie: "Industrie" },
+    variants: { poste: "Poste", stage: "Stage" },
+    dl: "Télécharger le PDF",
+    open: "Ouvrir dans un nouvel onglet",
+    note: "Le document s'affiche ci-dessus. Si votre navigateur ne lit pas les PDF, un aperçu image le remplace : utilisez alors le bouton de téléchargement.",
+    back: "Retour au portfolio",
+    footer: "Laye Soma Doumbia · Bamako, Mali · doumbialayesoma@gmail.com"
+  },
+  en: {
+    htmlTitle: "CV · Laye Soma Doumbia",
+    eyebrow: "Résumé",
+    title: "Résumé",
+    intro: "Three versions of the CV, one per profile. Pick the field, then the version that fits your need: job application or internship request.",
+    modes: { mecatronique: "Mechatronics", informatique: "Software", industrie: "Industry" },
+    variants: { poste: "Job", stage: "Internship" },
+    dl: "Download the PDF",
+    open: "Open in a new tab",
+    note: "The document is displayed above. If your browser cannot render PDFs, an image preview is shown instead — use the download button.",
+    back: "Back to the portfolio",
+    footer: "Laye Soma Doumbia · Bamako, Mali · doumbialayesoma@gmail.com"
+  },
+  es: {
+    htmlTitle: "CV · Laye Soma Doumbia",
+    eyebrow: "Currículum",
+    title: "Currículum",
+    intro: "Tres versiones del CV, una por perfil. Elija el ámbito y luego la versión adecuada: candidatura a un empleo o solicitud de prácticas.",
+    modes: { mecatronique: "Mecatrónica", informatique: "Informática", industrie: "Industria" },
+    variants: { poste: "Empleo", stage: "Prácticas" },
+    dl: "Descargar el PDF",
+    open: "Abrir en una pestaña nueva",
+    note: "El documento se muestra arriba. Si su navegador no puede mostrar PDF, verá una vista previa en imagen: use entonces el botón de descarga.",
+    back: "Volver al portafolio",
+    footer: "Laye Soma Doumbia · Bamako, Mali · doumbialayesoma@gmail.com"
+  }
+};
+
+const MODES = ["mecatronique", "informatique", "industrie"];
+const $ = (id) => document.getElementById(id);
+const q = new URLSearchParams(location.search);
+const state = {
+  lang: T[q.get("lang")] ? q.get("lang") : pickLang(),
+  mode: MODES.includes(q.get("mode")) ? q.get("mode") : "mecatronique",
+  variant: q.get("v") === "stage" ? "stage" : "poste"
+};
+
+function pickLang() {
+  try { const s = localStorage.getItem("lang"); if (T[s]) return s; } catch (e) {}
+  const n = (navigator.language || "fr").slice(0, 2).toLowerCase();
+  return T[n] ? n : "fr";
+}
+
+function base() {
+  return "cv-laye-soma-doumbia-" + state.mode + (state.variant === "stage" ? "-stage" : "");
+}
+
+function render() {
+  const t = T[state.lang];
+  document.documentElement.lang = state.lang;
+  document.title = t.htmlTitle;
+  $("eyebrow").textContent = t.eyebrow;
+  $("title").textContent = t.title;
+  $("intro").textContent = t.intro;
+  $("note").textContent = t.note;
+  $("footer").textContent = t.footer;
+  $("back").title = t.back;
+  $("dl-label").textContent = t.dl;
+  $("open-label").textContent = t.open;
+
+  document.querySelectorAll("#langs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
+  document.querySelectorAll("#modes button").forEach((b) => {
+    b.textContent = t.modes[b.dataset.mode];
+    b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode));
+  });
+  document.querySelectorAll("#variants button").forEach((b) => {
+    b.textContent = t.variants[b.dataset.variant];
+    b.setAttribute("aria-pressed", String(b.dataset.variant === state.variant));
+  });
+
+  const pdf = "cv/" + base() + ".pdf";
+  const img = "cv/preview/" + base() + ".jpg";
+  const name = "CV - Laye Soma DOUMBIA - " + t.modes[state.mode]
+             + (state.variant === "stage" ? " (" + t.variants.stage + ")" : "") + ".pdf";
+  $("dl").href = pdf;
+  $("dl").setAttribute("download", name);
+  $("open").href = pdf;
+
+  // Les navigateurs mobiles n'affichent pas les PDF en ligne : on sert l'aperçu.
+  const alt = t.title + " — " + t.modes[state.mode];
+  const small = window.matchMedia("(max-width: 820px)").matches;
+  $("viewer").innerHTML = small
+    ? '<img src="' + img + '" alt="' + alt + '">'
+    : '<object data="' + pdf + '#view=Fit&toolbar=1" type="application/pdf">'
+      + '<img src="' + img + '" alt="' + alt + '"></object>';
+
+  $("back").href = "index.html" + (state.lang === "fr" ? "" : "?lang=" + state.lang) + "#" + state.mode;
+
+  try {
+    const url = new URL(location.href);
+    url.searchParams.set("mode", state.mode);
+    if (state.variant === "stage") url.searchParams.set("v", "stage"); else url.searchParams.delete("v");
+    if (state.lang === "fr") url.searchParams.delete("lang"); else url.searchParams.set("lang", state.lang);
+    history.replaceState(null, "", url);
+  } catch (e) {}
+}
+
+document.querySelectorAll("#modes button").forEach((b) => b.addEventListener("click", () => { state.mode = b.dataset.mode; render(); }));
+document.querySelectorAll("#variants button").forEach((b) => b.addEventListener("click", () => { state.variant = b.dataset.variant; render(); }));
+document.querySelectorAll("#langs button").forEach((b) => b.addEventListener("click", () => {
+  state.lang = b.dataset.lang;
+  try { localStorage.setItem("lang", state.lang); } catch (e) {}
+  render();
+}));
+
+render();
+</script>
+</body>
+</html>
