@@ -1029,7 +1029,7 @@ function render() {
   $("proj-note").textContent = ui.projNote(m.label);
 
   const dl = $("cv-dl"), view = $("cv-view");
-  dl.href = "cv/cv-laye-soma-doumbia-" + state.mode + ".pdf";
+  dl.href = "cv/cv-laye-soma-doumbia-" + state.mode + "-" + state.lang + ".pdf";
   dl.setAttribute("download", "CV - Laye Soma DOUMBIA - " + m.label + ".pdf");
   dl.setAttribute("aria-label", ui.cvDownloadTitle(m.label));
   dl.title = ui.cvDownloadTitle(m.label);

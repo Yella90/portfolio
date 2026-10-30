@@ -162,7 +162,7 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Curriculum vitæ",
     title: "Curriculum vitæ",
-    intro: "Trois versions du CV, une par profil. Choisissez le domaine qui correspond au poste que vous proposez.",
+    intro: "Un CV par profil, dans la langue de la page. Choisissez le domaine qui correspond au poste que vous proposez ; pour une autre langue, utilisez FR, EN ou ES en haut de page.",
     modes: { mecatronique: "Mécatronique", informatique: "Informatique", industrie: "Industrie" },
     dl: "Télécharger le PDF",
     open: "Ouvrir dans un nouvel onglet",
@@ -174,7 +174,7 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Résumé",
     title: "Résumé",
-    intro: "Three versions of the CV, one per profile. Pick the field that matches the role you are hiring for.",
+    intro: "One CV per profile, in the language of the page. Pick the field that matches the role you are hiring for; for another language, use FR, EN or ES at the top of the page.",
     modes: { mecatronique: "Mechatronics", informatique: "Software", industrie: "Industry" },
     dl: "Download the PDF",
     open: "Open in a new tab",
@@ -186,7 +186,7 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Currículum",
     title: "Currículum",
-    intro: "Tres versiones del CV, una por perfil. Elija el ámbito que corresponda al puesto que ofrece.",
+    intro: "Un CV por perfil, en el idioma de la página. Elija el ámbito que corresponda al puesto que ofrece; para otro idioma, use FR, EN o ES en la parte superior.",
     modes: { mecatronique: "Mecatrónica", informatique: "Informática", industrie: "Industria" },
     dl: "Descargar el PDF",
     open: "Abrir en una pestaña nueva",
@@ -211,7 +211,7 @@ function pickLang() {
 }
 
 function base() {
-  return "cv-laye-soma-doumbia-" + state.mode;
+  return "cv-laye-soma-doumbia-" + state.mode + "-" + state.lang;
 }
 
 function render() {
