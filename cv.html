@@ -135,10 +135,6 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
       <button type="button" data-mode="informatique" aria-pressed="false">Informatique</button>
       <button type="button" data-mode="industrie" aria-pressed="false">Industrie</button>
     </nav>
-    <nav class="seg" id="variants" aria-label="Version">
-      <button type="button" data-variant="poste" aria-pressed="true">Poste</button>
-      <button type="button" data-variant="stage" aria-pressed="false">Stage</button>
-    </nav>
   </div>
 
   <div class="actions">
@@ -166,9 +162,8 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Curriculum vitæ",
     title: "Curriculum vitæ",
-    intro: "Trois versions du CV, une par profil. Choisissez le domaine, puis la version adaptée à votre besoin : candidature à un poste ou demande de stage.",
+    intro: "Trois versions du CV, une par profil. Choisissez le domaine qui correspond au poste que vous proposez.",
     modes: { mecatronique: "Mécatronique", informatique: "Informatique", industrie: "Industrie" },
-    variants: { poste: "Poste", stage: "Stage" },
     dl: "Télécharger le PDF",
     open: "Ouvrir dans un nouvel onglet",
     note: "Le document s'affiche ci-dessus. Si votre navigateur ne lit pas les PDF, un aperçu image le remplace : utilisez alors le bouton de téléchargement.",
@@ -179,9 +174,8 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Résumé",
     title: "Résumé",
-    intro: "Three versions of the CV, one per profile. Pick the field, then the version that fits your need: job application or internship request.",
+    intro: "Three versions of the CV, one per profile. Pick the field that matches the role you are hiring for.",
     modes: { mecatronique: "Mechatronics", informatique: "Software", industrie: "Industry" },
-    variants: { poste: "Job", stage: "Internship" },
     dl: "Download the PDF",
     open: "Open in a new tab",
     note: "The document is displayed above. If your browser cannot render PDFs, an image preview is shown instead — use the download button.",
@@ -192,9 +186,8 @@ const T = {
     htmlTitle: "CV · Laye Soma Doumbia",
     eyebrow: "Currículum",
     title: "Currículum",
-    intro: "Tres versiones del CV, una por perfil. Elija el ámbito y luego la versión adecuada: candidatura a un empleo o solicitud de prácticas.",
+    intro: "Tres versiones del CV, una por perfil. Elija el ámbito que corresponda al puesto que ofrece.",
     modes: { mecatronique: "Mecatrónica", informatique: "Informática", industrie: "Industria" },
-    variants: { poste: "Empleo", stage: "Prácticas" },
     dl: "Descargar el PDF",
     open: "Abrir en una pestaña nueva",
     note: "El documento se muestra arriba. Si su navegador no puede mostrar PDF, verá una vista previa en imagen: use entonces el botón de descarga.",
@@ -208,8 +201,7 @@ const $ = (id) => document.getElementById(id);
 const q = new URLSearchParams(location.search);
 const state = {
   lang: T[q.get("lang")] ? q.get("lang") : pickLang(),
-  mode: MODES.includes(q.get("mode")) ? q.get("mode") : "mecatronique",
-  variant: q.get("v") === "stage" ? "stage" : "poste"
+  mode: MODES.includes(q.get("mode")) ? q.get("mode") : "mecatronique"
 };
 
 function pickLang() {
@@ -219,7 +211,7 @@ function pickLang() {
 }
 
 function base() {
-  return "cv-laye-soma-doumbia-" + state.mode + (state.variant === "stage" ? "-stage" : "");
+  return "cv-laye-soma-doumbia-" + state.mode;
 }
 
 function render() {
@@ -240,15 +232,9 @@ function render() {
     b.textContent = t.modes[b.dataset.mode];
     b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode));
   });
-  document.querySelectorAll("#variants button").forEach((b) => {
-    b.textContent = t.variants[b.dataset.variant];
-    b.setAttribute("aria-pressed", String(b.dataset.variant === state.variant));
-  });
-
   const pdf = "cv/" + base() + ".pdf";
   const img = "cv/preview/" + base() + ".jpg";
-  const name = "CV - Laye Soma DOUMBIA - " + t.modes[state.mode]
-             + (state.variant === "stage" ? " (" + t.variants.stage + ")" : "") + ".pdf";
+  const name = "CV - Laye Soma DOUMBIA - " + t.modes[state.mode] + ".pdf";
   $("dl").href = pdf;
   $("dl").setAttribute("download", name);
   $("open").href = pdf;
@@ -266,14 +252,13 @@ function render() {
   try {
     const url = new URL(location.href);
     url.searchParams.set("mode", state.mode);
-    if (state.variant === "stage") url.searchParams.set("v", "stage"); else url.searchParams.delete("v");
+    url.searchParams.delete("v");
     if (state.lang === "fr") url.searchParams.delete("lang"); else url.searchParams.set("lang", state.lang);
     history.replaceState(null, "", url);
   } catch (e) {}
 }
 
 document.querySelectorAll("#modes button").forEach((b) => b.addEventListener("click", () => { state.mode = b.dataset.mode; render(); }));
-document.querySelectorAll("#variants button").forEach((b) => b.addEventListener("click", () => { state.variant = b.dataset.variant; render(); }));
 document.querySelectorAll("#langs button").forEach((b) => b.addEventListener("click", () => {
   state.lang = b.dataset.lang;
   try { localStorage.setItem("lang", state.lang); } catch (e) {}
