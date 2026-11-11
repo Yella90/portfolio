@@ -6,7 +6,7 @@ Le site est une page HTML statique, sans dépendance à installer : ouvrir `inde
 
 ## Trois profils
 
-Un sélecteur en haut de la page adapte la présentation, les compétences et l'ordre des réalisations au poste visé. Chaque profil a son lien direct :
+Un sélecteur en haut de la page adapte la présentation, les compétences et l'ordre des réalisations au domaine choisi. Chaque profil a son lien direct :
 
 - `#mecatronique` : automatisme, électromécanique et robotique
 - `#informatique` : développement web et logiciel

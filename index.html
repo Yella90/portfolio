@@ -317,7 +317,6 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
         <dt data-i18n="dtLangs">Langues</dt><dd data-i18n="ddLangs"></dd>
         <dt data-i18n="dtOnline">En ligne</dt><dd><a href="https://unitech-qvgo.onrender.com/" target="_blank" rel="noopener">unitech-qvgo.onrender.com</a><br><a href="https://ges-mali.vercel.app/" target="_blank" rel="noopener">ges-mali.vercel.app</a></dd>
         <dt data-i18n="dtCompany">Entreprise</dt><dd><span data-i18n="ddCompany"></span><a href="https://unitech-qvgo.onrender.com/" target="_blank" rel="noopener">UNITECH</a></dd>
-        <dt data-i18n="dtStatus">Statut</dt><dd id="status"></dd>
       </dl>
     </aside>
   </div>
@@ -405,14 +404,6 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
             <ul data-i18n="sUList"></ul>
           </div>
         </li>
-        <li class="trans" aria-hidden="true"><div class="wire"></div><div class="cond" data-i18n="t3"></div></li>
-        <li class="step active">
-          <div class="box">7</div>
-          <div class="act">
-            <h3 data-i18n="s4Title"></h3>
-            <p id="next-text"></p>
-          </div>
-        </li>
       </ol>
 
       <div class="side">
@@ -440,8 +431,8 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
     <div class="contact">
       <div>
         <p class="label" data-i18n="contactLabel">Contact</p>
-        <h2 data-i18n="contactTitle">Travaillons ensemble.</h2>
-        <p class="pitch" id="contact-line"></p>
+        <h2 data-i18n="contactTitle">Restons en contact.</h2>
+        <p class="pitch" data-i18n="contactLine"></p>
       </div>
       <div class="lines">
         <div><a href="mailto:doumbialayesoma@gmail.com">doumbialayesoma@gmail.com</a><button class="copy" type="button" data-copy="doumbialayesoma@gmail.com" data-i18n="copy">Copier</button></div>
@@ -491,11 +482,7 @@ footer { padding-block: 28px 40px; border-top: 1px solid var(--line); color: var
     "Maintenance industrielle", "Énergie solaire photovoltaïque",
     "Systèmes embarqués", "Internet des objets", "Agents IA",
     "Développement web", "Python", "Node.js", "React", "PostgreSQL"
-  ],
-  "seeks": {
-    "@type": "Demand",
-    "name": "Poste en automatisme, mécatronique, robotique, maintenance industrielle ou développement logiciel"
-  }
+  ]
 }
 </script>
 <div class="toast" id="toast" hidden></div>
@@ -542,7 +529,7 @@ const T = {
       dtSchool: "École", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bac", ddBac: "Sciences Exactes, 2020 – 2021",
       dtLangs: "Langues", ddLangs: "Français, Bambara, Anglais (intermédiaire)",
-      dtOnline: "En ligne", dtStatus: "Statut", dtCompany: "Produits", ddCompany: "SaaS publiés sous le nom ",
+      dtOnline: "En ligne", dtCompany: "Produits", ddCompany: "SaaS publiés sous le nom ",
       secProjects: "Réalisations",
       projNote: (p) => "Classées pour le profil " + p,
       secSkills: "Compétences",
@@ -573,14 +560,13 @@ const T = {
       sUTitle: "UNITECH — mes produits SaaS",
       sUSub: "Logiciels que je conçois et publie · Bamako",
       sUList: ["SaaS pour l'éducation, le commerce local et la gestion énergétique", "Agent IA HARVEY ; formations en IA, énergie et maintenance"],
-      t3: "disponible immédiatement",
-      s4Title: "Prochaine étape",
       sideLangs: "Langues", langFr: "Français", langEn: "Anglais", lvlGood: "très bon", lvlMid: "intermédiaire",
       sideSoft: "Qualités",
       sideHobbies: "En dehors du travail",
       hobbies: ["Sport", "Musique", "Lecture", "Voyage", "Veille sur les nouvelles technologies"],
       contactLabel: "Contact",
-      contactTitle: "Travaillons ensemble.",
+      contactTitle: "Restons en contact.",
+      contactLine: "Pour échanger sur mes projets ou sur une collaboration technique.",
       copy: "Copier", copied: "Copié : ", selected: "Texte sélectionné, faites Ctrl+C",
       address: "Kalaban Coura ACI, Bamako, Mali",
       footer: "© 2026 Laye Soma Doumbia · Liens directs : ajoutez #mecatronique, #informatique ou #industrie à l'adresse."
@@ -604,10 +590,7 @@ const T = {
           ["Informatique industrielle", "Supervision et IHM, interfaces Kivy MD (Python), web (Django, React, EJS)"],
           ["Bureautique", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"],
-        next: "Un poste en automatisme, mécatronique ou robotique. Également ouvert aux offres en développement web, logiciel et agents IA.",
-        contact: "Je recherche un poste en automatisme, mécatronique ou robotique, et je suis aussi ouvert aux offres en développement web, logiciel et agents IA.",
-        status: "Ouvert aux offres en mécatronique, industrie et informatique"
+        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Orienté solutions"]
       },
       informatique: {
         label: "Informatique",
@@ -627,10 +610,7 @@ const T = {
           ["Informatique industrielle", "Programmation des API (Grafcet, Ladder), supervision"],
           ["Bureautique", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Autonomie et autodidaxie", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"],
-        next: "Un poste de développeur (web, logiciel ou agents IA), ou un stage de 3 mois en génie logiciel.",
-        contact: "Je recherche un poste de développeur (web, logiciel ou agents IA), ou un stage de 3 mois en génie logiciel.",
-        status: "Ouvert aux offres en informatique, mécatronique et industrie"
+        soft: ["Autonomie et autodidaxie", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Capacité d'adaptation"]
       },
       industrie: {
         label: "Industrie",
@@ -650,10 +630,7 @@ const T = {
           ["Outils numériques & IA", "IHM et supervision, applications de suivi (Python, Node.js, PostgreSQL), agents IA pour automatiser des tâches"],
           ["Bureautique", "Word, PowerPoint, Excel, Access : rapports et procédures"]
         ],
-        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"],
-        next: "Un poste de technicien en maintenance ou en production industrielle. Également ouvert aux offres en développement web, logiciel et agents IA.",
-        contact: "Je recherche un poste de technicien en maintenance ou en production industrielle, et je suis aussi ouvert aux offres en développement web, logiciel et agents IA.",
-        status: "Ouvert aux offres en industrie, mécatronique et informatique"
+        soft: ["Capacité d'adaptation", "Sens de l'organisation", "Rigueur", "Esprit analytique", "Travail en équipe"]
       }
     },
     projects: {
@@ -689,7 +666,7 @@ const T = {
       dtSchool: "School", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "High school", ddBac: "Malian Baccalaureate, Exact Sciences, 2020 – 2021",
       dtLangs: "Languages", ddLangs: "French, Bambara, English (intermediate)",
-      dtOnline: "Online", dtStatus: "Status", dtCompany: "Products", ddCompany: "SaaS shipped under the name ",
+      dtOnline: "Online", dtCompany: "Products", ddCompany: "SaaS shipped under the name ",
       secProjects: "Projects",
       projNote: (p) => "Ordered for the " + p + " profile",
       secSkills: "Skills",
@@ -720,14 +697,13 @@ const T = {
       sUTitle: "UNITECH — my SaaS products",
       sUSub: "Software I design and ship · Bamako",
       sUList: ["SaaS for education, local retail and energy management", "HARVEY AI agent; training in AI, energy and maintenance"],
-      t3: "available now",
-      s4Title: "Next step",
       sideLangs: "Languages", langFr: "French", langEn: "English", lvlGood: "fluent", lvlMid: "intermediate",
       sideSoft: "Strengths",
       sideHobbies: "Outside work",
       hobbies: ["Sports", "Music", "Reading", "Travel", "Keeping up with new technology"],
       contactLabel: "Contact",
-      contactTitle: "Let's work together.",
+      contactTitle: "Get in touch.",
+      contactLine: "To talk about my projects or a technical collaboration.",
       copy: "Copy", copied: "Copied: ", selected: "Text selected, press Ctrl+C",
       address: "Kalaban Coura ACI, Bamako, Mali",
       footer: "© 2026 Laye Soma Doumbia · Direct links: add #mecatronique, #informatique or #industrie to the address, and ?lang=en before the #."
@@ -751,10 +727,7 @@ const T = {
           ["Industrial computing", "SCADA and HMI, Kivy MD interfaces (Python), web (Django, React, EJS)"],
           ["Office tools", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Solution-oriented"],
-        next: "A role in automation, mechatronics or robotics. Also open to web, software and AI agent development roles.",
-        contact: "I'm looking for a role in automation, mechatronics or robotics, and I'm also open to web, software and AI agent development roles.",
-        status: "Open to roles in mechatronics, industry and software"
+        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Solution-oriented"]
       },
       informatique: {
         label: "Software",
@@ -774,10 +747,7 @@ const T = {
           ["Industrial computing", "PLC programming (GRAFCET, Ladder), supervision"],
           ["Office tools", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Self-driven, self-taught", "Organization", "Thoroughness", "Analytical thinking", "Adaptability"],
-        next: "A developer role (web, software or AI agents), or a 3-month software engineering internship.",
-        contact: "I'm looking for a developer role (web, software or AI agents), or a 3-month software engineering internship.",
-        status: "Open to roles in software, mechatronics and industry"
+        soft: ["Self-driven, self-taught", "Organization", "Thoroughness", "Analytical thinking", "Adaptability"]
       },
       industrie: {
         label: "Industry",
@@ -797,10 +767,7 @@ const T = {
           ["Digital tools & AI", "HMI and supervision, tracking apps (Python, Node.js, PostgreSQL), AI agents for task automation"],
           ["Office tools", "Word, PowerPoint, Excel, Access: reports and procedures"]
         ],
-        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Teamwork"],
-        next: "A maintenance or production technician role. Also open to web, software and AI agent development roles.",
-        contact: "I'm looking for a maintenance or production technician role, and I'm also open to web, software and AI agent development roles.",
-        status: "Open to roles in industry, mechatronics and software"
+        soft: ["Adaptability", "Organization", "Thoroughness", "Analytical thinking", "Teamwork"]
       }
     },
     projects: {
@@ -836,7 +803,7 @@ const T = {
       dtSchool: "Escuela", ddSchool: "Institut des Sciences Appliquées (ISA), USTTB, Bamako · 2022 – 2026",
       dtBac: "Bachillerato", ddBac: "Ciencias Exactas, 2020 – 2021",
       dtLangs: "Idiomas", ddLangs: "Francés, bambara, inglés (intermedio)",
-      dtOnline: "En línea", dtStatus: "Estado", dtCompany: "Productos", ddCompany: "SaaS publicados bajo el nombre ",
+      dtOnline: "En línea", dtCompany: "Productos", ddCompany: "SaaS publicados bajo el nombre ",
       secProjects: "Proyectos",
       projNote: (p) => "Ordenados para el perfil " + p,
       secSkills: "Competencias",
@@ -867,14 +834,13 @@ const T = {
       sUTitle: "UNITECH — mis productos SaaS",
       sUSub: "Programas que diseño y publico · Bamako",
       sUList: ["SaaS para educación, comercio local y gestión energética", "Agente de IA HARVEY; formaciones en IA, energía y mantenimiento"],
-      t3: "disponible de inmediato",
-      s4Title: "Próxima etapa",
       sideLangs: "Idiomas", langFr: "Francés", langEn: "Inglés", lvlGood: "muy bueno", lvlMid: "intermedio",
       sideSoft: "Cualidades",
       sideHobbies: "Fuera del trabajo",
       hobbies: ["Deporte", "Música", "Lectura", "Viajes", "Nuevas tecnologías"],
       contactLabel: "Contacto",
-      contactTitle: "Trabajemos juntos.",
+      contactTitle: "Hablemos.",
+      contactLine: "Para hablar de mis proyectos o de una colaboración técnica.",
       copy: "Copiar", copied: "Copiado: ", selected: "Texto seleccionado, pulsa Ctrl+C",
       address: "Kalaban Coura ACI, Bamako, Malí",
       footer: "© 2026 Laye Soma Doumbia · Enlaces directos: añade #mecatronique, #informatique o #industrie a la dirección, y ?lang=es antes del #."
@@ -898,10 +864,7 @@ const T = {
           ["Informática industrial", "Supervisión y HMI, interfaces Kivy MD (Python), web (Django, React, EJS)"],
           ["Ofimática", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Orientado a soluciones"],
-        next: "Un puesto en automatización, mecatrónica o robótica. También abierto a ofertas de desarrollo web, software y agentes de IA.",
-        contact: "Busco un puesto en automatización, mecatrónica o robótica, y también estoy abierto a ofertas de desarrollo web, software y agentes de IA.",
-        status: "Abierto a ofertas en mecatrónica, industria e informática"
+        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Orientado a soluciones"]
       },
       informatique: {
         label: "Informática",
@@ -921,10 +884,7 @@ const T = {
           ["Informática industrial", "Programación de PLC (GRAFCET, Ladder), supervisión"],
           ["Ofimática", "Word, PowerPoint, Excel, Access"]
         ],
-        soft: ["Autonomía y autodidactismo", "Organización", "Rigor", "Espíritu analítico", "Adaptabilidad"],
-        next: "Un puesto de desarrollador (web, software o agentes de IA), o unas prácticas de 3 meses en ingeniería de software.",
-        contact: "Busco un puesto de desarrollador (web, software o agentes de IA), o unas prácticas de 3 meses en ingeniería de software.",
-        status: "Abierto a ofertas en informática, mecatrónica e industria"
+        soft: ["Autonomía y autodidactismo", "Organización", "Rigor", "Espíritu analítico", "Adaptabilidad"]
       },
       industrie: {
         label: "Industria",
@@ -944,10 +904,7 @@ const T = {
           ["Herramientas digitales e IA", "HMI y supervisión, aplicaciones de seguimiento (Python, Node.js, PostgreSQL), agentes de IA para automatizar tareas"],
           ["Ofimática", "Word, PowerPoint, Excel, Access: informes y procedimientos"]
         ],
-        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Trabajo en equipo"],
-        next: "Un puesto de técnico de mantenimiento o de producción industrial. También abierto a ofertas de desarrollo web, software y agentes de IA.",
-        contact: "Busco un puesto de técnico de mantenimiento o de producción industrial, y también estoy abierto a ofertas de desarrollo web, software y agentes de IA.",
-        status: "Abierto a ofertas en industria, mecatrónica e informática"
+        soft: ["Adaptabilidad", "Organización", "Rigor", "Espíritu analítico", "Trabajo en equipo"]
       }
     },
     projects: {
@@ -1023,9 +980,6 @@ function render() {
   $("pitch").innerHTML = m.pitch.map((p) => `<p>${esc(p)}</p>`).join("");
   $("skills").innerHTML = m.skills.map(([k, d]) => `<div class="skill"><i></i><div><b>${esc(k)}</b><span>${esc(d)}</span></div></div>`).join("");
   $("soft").innerHTML = m.soft.map((s) => `<span class="chip">${esc(s)}</span>`).join("");
-  $("next-text").textContent = m.next;
-  $("status").textContent = m.status;
-  $("contact-line").textContent = m.contact;
   $("proj-note").textContent = ui.projNote(m.label);
 
   const dl = $("cv-dl"), view = $("cv-view");
